@@ -1,5 +1,3 @@
----
-
 # 🦊 **MultiHub HTML Code Breakdown** 🦊
 
 Welcome to the **MultiHub** code breakdown! This document provides a comprehensive overview of the HTML, CSS, and JavaScript that power the MultiHub web application. Whether you're a developer, designer, or simply curious, this guide will help you navigate and understand the structure, styling, and functionality of the project.
@@ -124,5 +122,3 @@ This enhanced README provides a detailed and visually engaging overview of the M
 ---
 
 **GitHub**: [@AdityaSG4](https://github.com/AdityaSG4)
-
----
