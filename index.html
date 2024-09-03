@@ -1,0 +1,547 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MultiHub - Boost Your Productivity with AI Tools & Fun Games</title>
+    <meta name="description" content="MultiHub is your one-stop platform for AI-powered productivity tools and engaging games. Streamline your workflow, generate creative content, and have fun with our diverse range of features.">
+    <meta name="keywords" content="AI tools, productivity, games, content generation, workflow, efficiency, fun, entertainment, MultiHub">
+
+    <link rel="icon" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiPArZjWBcA4Nt_9JU-USrgAFoH6T4lDssVDmtRYY8-IGbKIGczzuQ9eEQ9ithN03ThhqstnTkGgvJFKhj4Ht4s7ru0_lpDdFRVe7JM8a4xWNoeu5waff-D-ZJ-aW-WtvK-9igj0Y0dhqPko6LYH0S4OYESrN7H4GIY2sZ1Lvxuz2o7B79_HPvieO9nsZEH/s320/Untitled%20(500%20x%20200%20px).png" type="image/png">
+
+    <meta property="og:title" content="MultiHub - Boost Your Productivity">
+    <meta property="og:description" content="Streamline your workflow, generate creative content, and have fun with our AI tools and engaging games.">
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://kit.fontawesome.com/c72db511fe.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!--
+   To ensure full functionality, 
+   please add the API key for Gemini 1.5 Flash. 
+   For the contact form to work, you need to include the API key from Web3Form (contact section). 
+    -->
+    <main id="mainSection">
+        <!-- Header Section -->
+        <div id="header">
+            <!-- Navigation Bar -->
+            <nav>
+                <!-- Sidebar Navigation (Hidden by default on larger screens) -->
+                <ul class="sidebar">
+                    <li onclick="hideSidebar(event)">
+                        <a href="#">
+                            <!-- Close Sidebar Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" height="22" viewBox="0 96 960 960" width="22">
+                                <path d="m249 849-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z" />
+                            </svg>
+                        </a>
+                    </li>
+                    <li><a href="#header">Home</a></li>
+                    <li><a href="#trendingtools">Trending Tools</a></li>
+                    <li><a href="#tools">Tools</a></li>
+                    <li><a href="#games">Game</a></li>
+                    <li><a href="#todolist">Todo list</a></li>
+                    <li><a href="#contacts">Contacts</a></li>
+                    <li><a href="#about">About</a></li>
+
+                </ul>
+                <!-- Main Navigation (Visible on all screens) -->
+                <ul>
+                    <li><a href="#">MultiHub</a></li>
+                    <!-- Navigation Links (Hidden on smaller screens) -->
+                    <li class="hideOnMobile hover-b"><a href="#header">Home</a></li>
+                    <li class="hideOnMobile hover-b"><a href="#trendingtools">Trending Tools</a></li>
+                    <li class="hideOnMobile hover-b"><a href="#tools">Tools</a></li>
+                    <li class="hideOnMobile hover-b"><a href="#games">Game</a></li>
+                    <li class="hideOnMobile hover-b"><a href="#todolist">Todo list</a></li>
+                    <li class="hideOnMobile hover-b"><a href="#contacts">Contacts</a></li>
+                    <li class="hideOnMobile hover-b"><a href="#about">About</a></li>
+
+                    <!-- Menu Button (Visible only on smaller screens) -->
+                    <li class="menu-button" onclick="showSidebar(event)">
+                        <a href="#" onclick="event.preventDefault()">
+                            <!-- Menu Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" height="22" viewBox="0 96 960 960" width="26">
+                                <path d="M120 816v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z" />
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Header Content -->
+            <div class="headerContent" id="home">
+                <div>
+                    <img class="headerContentimg" src="https://komalnazportfolio.my.canva.site/client-testimonials/images/dac1fff9d5268635f0ac89f5870ac586.png" alt="Header Image">
+                </div>
+                <div>
+                    <h1>Increase your Productivity with us!</h1>
+                    <p>Streamline your workflow, boost efficiency, and unlock your full potential with our all-in-one
+                        platform. From task management to seamless communication, Multihub empowers you to achieve more.</p>
+                    <button class="button-85" role="button" id="header-learn-more">Learn More</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll to Top Button -->
+        <div class="scroll-to-top">
+            <a href="#header">
+                <i class="fa-regular fa-circle-up"></i>
+            </a>
+        </div>
+
+        <!-- Trending Tools Section -->
+        <section id="trendingtools">
+            <h2>Trending Tools</h2>
+            <div class="section-content">
+                <div class="feature-card">
+                    <div class="feature-card-cont-img">
+                        <img src="https://cdn-icons-png.flaticon.com/128/4674/4674918.png" alt="Trending Tool 1">
+                    </div>
+                    <h3>Youtube Tags</h3>
+                    <p>An AI tool that generates YouTube tags based on your video topic or title and description outline.</p>
+                    <button onclick="callToolResponsePage('Youtube_Tags')">Learn More</button>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-card-cont-img">
+                        <img src="https://cdn-icons-png.flaticon.com/128/2986/2986483.png" alt="Trending Tool 1">
+                    </div>
+                    <h3>Resume Builder</h3>
+                    <p>An AI tool that generates a professional resume based on your details and job target.</p>
+                    <button onclick="callToolResponsePage('Resume_Builder')">Learn More</button>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-card-cont-img">
+                        <img src="https://cdn-icons-png.flaticon.com/128/11497/11497847.png" alt="Trending Tool 1">
+                    </div>
+                    <h3>Blog Topic Ideas</h3>
+                    <p>An AI tool that generates blog topic ideas for your chosen niche.</p>
+                    <button onclick="callToolResponsePage('Blog_Topic_Ideas')">Learn More</button>
+                </div>
+            </div>
+            <div class="view-more-button">
+                <button onclick="openMoreToolSection()">View More Trending Tools</button>
+            </div>
+        </section>
+
+        <!-- Tools Section -->
+        <section id="tools">
+            <h2>Tools</h2>
+            <div class="section-content">
+                <div class="feature-card">
+                    <div class="feature-card-cont-img">
+                        <img src="https://cdn-icons-png.flaticon.com/128/10221/10221707.png" alt="Trending Tool 1">
+                    </div>
+                    <h3>Book Recommendation</h3>
+                    <p>An AI tool that recommends books based on your interests and reading history. </p>
+                    <button onclick="callToolResponsePage('Book_Recommendation')">Learn More</button>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-card-cont-img">
+                        <img src="https://cdn-icons-png.flaticon.com/128/3898/3898082.png" alt="Trending Tool 1">
+                    </div>
+                    <h3>Language Translator</h3>
+                    <p>An AI tool that translates text from one language to another.</p>
+                    <button onclick="callToolResponsePage('Language_Translator')">Learn More</button>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-card-cont-img">
+                        <img src="https://cdn-icons-png.flaticon.com/128/8121/8121644.png" alt="Trending Tool 1">
+                    </div>
+                    <h3>Essay Topic Suggester</h3>
+                    <p>An AI tool that suggests essay topics based on your subject or area of interest. </p>
+                    <button onclick="callToolResponsePage('Essay_Topic_Suggester')">Learn More</button>
+                </div>
+            </div>
+            <div class="view-more-button">
+                <button onclick="openMoreToolSection()">View More Tools</button>
+            </div>
+        </section>
+
+        <!-- Games Section -->
+        <section id="games">
+            <h2>Games</h2>
+            <div class="section-content">
+                <div class="feature-card">
+                    <div class="feature-card-cont-img">
+                        <img src="https://cdn-icons-png.flaticon.com/128/2452/2452778.png" alt="Guessing Number Game 1">
+                    </div>
+                    <h3>Guess Number</h3>
+                    <p>Crack the Code! Guess the hidden number in the fewest tries possible. Sharpen your mind and test your intuition in this fun puzzle game.</p>
+                    <button onclick="game1open()">Learn More</button>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-card-cont-img">
+                        <img src="https://cdn-icons-png.flaticon.com/128/619/619153.png" alt="Trivia Quiz Game">
+                    </div>
+                    <h3>Trivia Quiz</h3>
+                    <p>Put Your Knowledge to the Test! Answer questions from various categories and see how much you know. A great way to learn new things, test your brainpower, or just have a good time with friends.</p>
+                    <button onclick="game2open()">Learn More</button>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-card-cont-img">
+                        <img src="https://cdn-icons-png.flaticon.com/128/3565/3565418.png" alt="Sudoku Puzzle Game">
+                    </div>
+                    <h3>Whac to mole</h3>
+                    <p>Reflexes on Fire! Whack those pesky moles as they pop up in this fast-paced classic. Test your hand-eye coordination and see how many you can catch!</p>
+                    <button onclick="game3open()">Learn More</button>
+                </div>
+            </div>
+            <div class="view-more-button">
+                <button id="viewMoreGamesBtn">View More Games</button>
+            </div>
+            <div id="result3" class="game3notification"></div>
+        </section>
+
+        <!-- Todo List Section -->
+
+        <section id="todolist" style="display: block;">
+            <h2>Todo List</h2>
+            <div class="multihub-todolist-wrapper">
+                <form class="multihub-todolist-form">
+                    <input id="multihub-todolist-input" type="text" placeholder="write anything and hit enter to add" autocomplete="off">
+                    <button id="multihub-todolist-add-button">ADD</button>
+                </form>
+                <ul id="multihub-todolist-list">
+                </ul>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contacts">
+            <h2>Contacts</h2>
+            <div class="contact-container">
+                <form class="contact-form" id="form">
+                    <input type="hidden" name="access_key" value="For the contact form to work, you need to include the API key from Web3Form.">
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">MY NAME IS</label>
+                            <input type="text" id="name" name="name" placeholder="Your Name" spellcheck="false" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">MY E-MAIL IS</label>
+                            <input type="email" id="email" name="email" placeholder="Your Email" spellcheck="false" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="number">MY NUMBER IS</label>
+                            <input type="tel" id="number" name="number" placeholder="Your Phone Number" required="">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Gender</label>
+                            <select id="subject" name="subject">
+                                <option value="option1" selected>Male</option>
+                                <option value="option2">Female</option>
+                                <option value="option3">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group2">
+                        <label for="message">I'D LIKE TO CHAT ABOUT</label>
+                        <textarea id="message" name="message" placeholder="Enter your 'message' or 'request'" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">SEND MESSAGE</button>
+                    <div id="result"></div>
+
+                </form>
+            </div>
+        </section>
+
+        <!-- About Section Popup -->
+        <section id="about">
+            <div id="aboutPopup" class="popup">
+                <div class="popup-content">
+                    <span class="close-btn" onclick="closePopup()">&times;</span>
+                    <h2>About</h2>
+                    <div class="container">
+                        <p>Welcome to MultiHub, your ultimate productivity companion. At MultiHub, we believe in empowering individuals and teams to achieve their goals with ease and efficiency. Our platform offers a suite of tools designed to streamline your workflow, boost your creativity, and keep you organized. Whether you're managing tasks, generating content, or seeking inspiration, MultiHub provides the resources you need to excel in every aspect of your life.</p>
+                        <h3>Our Mission</h3>
+                        <p>Our mission is to simplify the complexities of daily tasks by providing an all-in-one platform that combines powerful tools with an intuitive interface. We aim to make productivity accessible to everyone, from students to professionals, so you can focus on what truly matters—bringing your ideas to life.</p>
+                        <h3>Why Choose MultiHub?</h3>
+                        <ul>
+                            <li><strong>All-in-One Solution:</strong> Access a diverse range of tools all in one place, saving you time and effort.</li>
+                            <li><strong>Innovative Features:</strong> Stay ahead with AI-powered tools that enhance your productivity and creativity.</li>
+                            <li><strong>User-Friendly Design:</strong> Enjoy a seamless experience with an interface designed for efficiency and ease of use.</li>
+                            <li><strong>Continuous Updates:</strong> We’re always evolving to bring you the latest and most effective tools.</li>
+                        </ul>
+                        <h3>Our Vision</h3>
+                        <p>We envision a world where technology serves as an extension of human potential, enabling everyone to achieve more with less effort. Through continuous innovation and a deep understanding of our users' needs, we strive to create a platform that not only meets but exceeds expectations.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- <footer> -->
+        <!-- Footer Section -->
+        <footer>
+            <div class="footer-content">
+                <div class="footer-section about">
+                    <h2>MultiHub</h2>
+                    <p>Your ultimate productivity companion. Streamline your tasks, stay organized, and boost your efficiency with MultiHub's suite of tools and features.</p>
+                    <div class="socials">
+                        <a href="https://www.facebook.com/people/Aditya-Gupta/pfbid0Scftt6BR98k2ANT4G1L56QZY8xAQx974KtZVohDA2BgqneHrzzctHuK5pm9xH494l/?mibextid=ZbWKwL" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/Aditya90045" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/666_aditya_999/" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://in.linkedin.com/in/adityagupta-profile" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section links">
+                    <h2>Quick Links</h2>
+                    <ul>
+                        <li><a href="#header">Home</a></li>
+                        <li><a href="#trendingtools">Trending Tools</a></li>
+                        <li><a href="#tools">Tools</a></li>
+                        <li><a href="#games">Games</a></li>
+                        <li><a href="#todolist">Todo List</a></li>
+                        <li><a href="#contacts">Contacts</a></li>
+                        <li><a href="#about">About</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section contact">
+                    <h2>Contact Us</h2>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 1234 MultiHub St, Productivity City, PC 12345</li>
+                        <li><i class="fas fa-phone"></i> +1 234 567 890</li>
+                        <li><i class="fas fa-envelope"></i> contact@multihub.com</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 MultiHub. All Rights Reserved.</p>
+            </div>
+        </footer>
+
+
+
+
+    </main>
+    <!-- Check the game here -->
+
+    <section id="toolSection" class="d-none">
+        <div class="section-content-search-2">
+            <h1>
+                Increase your Productivity with us!</h1>
+            <p>
+                Streamline your workflow, boost efficiency, and unlock your full potential with our all-in-one platform. From
+                task management to seamless communication, Multihub empowers you to achieve more.
+            </p>
+            <input type="text" placeholder="Search Tool Here" autocomplete="off" spellcheck="false" id="toolFind">
+        </div>
+        <div class="section-content-2">
+            <div id="spinner" class="d-none spinner-border text-dark" role="status">
+                <span class="sr-only">Loading....</span>
+            </div>
+        </div>
+        <!-- Scroll to Home Button -->
+        <div class="scroll-to-home">
+            <a href="#tools" onclick="backToHome()">
+                <i class="fa-solid fa-house"></i>
+            </a>
+        </div>
+    </section>
+
+    <section id="nextPage1" class="nextPagecss d-none">
+    </section>
+
+    <section id="nextPage2" class="nextPagecss d-none">
+
+    </section>
+
+
+
+    <!-- End the game here-->
+
+    <!--Game 1-->
+    <section id="game1sec" class="d-none">
+        <div class="container-fluid game1-bg-container">
+            <div class="row">
+
+                <div class="col-12 game1-guess-bg-container text-center">
+                    <p class="text-center game1-game-description">
+                        Find out the right number between 1 to 100
+                    </p>
+                    <h1 class="game1-guess-heading">
+                        Guess The Number
+                        <img class="game1-guess-number-image" src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-dynamic-webapps/guess-number-img.png" />
+                    </h1>
+                    <input type="text" placeholder="Enter Number Here" class="game1-user-input" id="game1userInput" autocomplete="off" />
+                    <div>
+                        <button class="btn submit-button button-85 game1-check-guess" onclick="game1checkGuess()">
+                            Check
+                        </button>
+                    </div>
+                    <p class="game1-game-result" id="gameResult"></p>
+                    <p class="game1-game-result1" id="gameResult1"></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll to Home Button -->
+        <div class="scroll-to-home">
+            <a href="#games" onclick="backToHomeFromGame1()">
+                <i class="fa-solid fa-house"></i>
+            </a>
+        </div>
+    </section>
+
+
+    <!--Game 2-->
+    <section id="game2sec" class="d-none">
+        <h1>Trivia Quiz</h1>
+        <div id="game2-category-selection">
+            <!-- Category elements will be dynamically added here -->
+        </div>
+
+        <!-- Scroll to Home Button -->
+        <div class="scroll-to-home">
+            <a href="#games" onclick="backToHomeFromGame2()">
+                <i class="fa-solid fa-house"></i>
+            </a>
+        </div>
+
+        <div id="game2-quiz-container">
+            <div id="game2-question-tracker">
+                <p id="game2-question-number">Question 1 of X</p>
+            </div>
+            <div id="game2-question-area">
+                <h2 id="game2-question-text"></h2>
+                <div id="game2-options-area">
+                    <!-- Options will be dynamically added here -->
+                </div>
+            </div>
+
+            <div id="game2-timer-area">
+                <p id="game2-timer">15</p>
+            </div>
+
+            <div id="game2-score-area">
+                <p id="game2-score">Score: 0</p>
+            </div>
+            <button class="submit-button button-85" id="game2-stop-quiz">Stop Quiz</button>
+        </div>
+
+        <div class="button-85 game2-popup" id="game2-results-popup">
+            <div class="game2-popup-content">
+                <h2 class="game2-popup-content-title">-*-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Quiz
+                    Results&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-*-</h2>
+                <hr>
+                <p>Attempted Questions: <span id="game2-attempts"></span></p>
+                <p>Correct Answers: <span id="game2-correct"></span></p>
+                <p>Wrong Answers: <span id="game2-wrong"></span></p>
+                <p>Score: <span id="game2-final-score"></span></p>
+                <button class="button-85" id="game2-back-button">Back</button>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!--Game 3-->
+    <section id="game3sec" class="d-none">
+        <!-- Start Screen -->
+        <div id="game3-startScreen">
+            <h1>Welcome to Whac-a-Mole!</h1>
+            <button onclick="startGame3()" class="button-85">Start Game</button>
+        </div>
+
+        <!-- Game Info -->
+        <div id="game3-info" style="display: none;">
+            <h1 id="game3-title">Whac a Mole</h1>
+            <h2 id="game3-score">Score: 0</h2>
+            <h2 id="game3-timer">Time: 90</h2>
+        </div>
+
+        <!-- Game Board -->
+        <div id="game3-board" style="display: none;">
+
+        </div>
+
+        <!-- Game Over Popup -->
+        <div id="game3-popup" style="display: none;">
+            <h2>Game Over</h2>
+            <p id="game3-finalScore">Your Score: 0</p>
+            <button onclick="restartGame3()" class="button-85">Restart Game</button>
+        </div>
+
+        <!-- Scroll to Home Button -->
+        <div class="scroll-to-home">
+            <a href="#games" onclick="backToHomeFromGame3()">
+                <i class="fa-solid fa-house"></i>
+            </a>
+        </div>
+    </section>
+
+
+
+
+    <!-- JavaScript for Sidebar Functionality -->
+    <script>
+        function showSidebar(event) {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function hideSidebar(event) {
+            event.preventDefault();
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+
+        //About--------------------------------------------------------------------
+        // Function to open the popup
+        function openPopup() {
+            document.getElementById('about').style.display = 'block';
+            document.getElementById('aboutPopup').style.display = 'block';
+            document.body.classList.add('popup-open');
+        }
+
+        // Function to close the popup
+        function closePopup() {
+            document.getElementById('about').style.display = 'none';
+            document.getElementById('aboutPopup').style.display = 'none';
+            document.body.classList.remove('popup-open');
+        }
+
+        // Event listener to open the popup when "About" link is clicked
+        document.querySelectorAll('a[href="#about"]').forEach(function(aboutLink) {
+            aboutLink.addEventListener('click', function(event) {
+                event.preventDefault();
+                openPopup();
+            });
+        });
+
+        document.getElementById('header-learn-more').onclick = function() {
+            openPopup();
+        }
+        //About--------------------------------------------------------------------
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>

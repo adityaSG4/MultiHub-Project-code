@@ -1,0 +1,2942 @@
+/*
+-----------------------------------------
+  Index Github: @AdityaSG4
+-------------------
+  1. Font Imports
+  2. General Styles
+  3. Navigation Styles
+  4. Sidebar Styles
+  5. Header Styles
+  6. Section Styles
+  7. Feature Card Styles
+  8. Button Styles
+  9. Scroll to Top Button Styles
+  10. Glowing Button Styles
+  11. Contact Form Styles
+  12. Media Queries for Responsiveness
+      - Large Desktop Styles
+      - Tablet and Mobile Styles
+      - Smaller Tablet and Mobile Styles
+      - Small Mobile Styles
+      - Contact Form Responsive Styles
+  13. Alternate Section Background Colors
+  14. Tool Section Styles
+  15. Section Content Search Styles
+  16. Feature Card Styles (Tool Section)
+  17. Animation Keyframes
+  18. Next Page Styles (Tool Section)
+  19. Game 1 Styles
+  20. Game 2 Styles
+  21. Game 3 Styles
+  22. Todo List Styles
+  23. About Section Styles
+  24. Footer Styles
+  25. Loader Styles
+  26. Font Size Adjustments
+--------------------
+-----------------------------------------
+*/
+
+/* 
+-----------------------------------------------------------
+  1. Font Imports 
+-----------------------------------------------------------
+*/
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&family=Mochiy+Pop+P+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arsenal+SC:wght@400;700&family=Bitter:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arsenal+SC:wght@400;700&family=Bitter:ital,wght@0,100..900;1,100..900&family=Patua+One&display=swap');
+
+/* 
+-----------------------------------------------------------
+  2. General Styles - Apply to the entire page 
+-----------------------------------------------------------
+*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+body {
+    height: 100%;
+    background-color: #f7f6ff;
+    background-size: cover;
+    text-decoration: none;
+    overflow-x: hidden;
+}
+
+/* Hide scrollbar for the entire body */
+body::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+/* 
+-----------------------------------------------------------
+  3. Navigation Styles 
+-----------------------------------------------------------
+*/
+
+/* Navigation Bar Styles */
+nav ul {
+    width: 100%;
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 1.4rem 2rem;
+    z-index: 9999;
+}
+
+nav li {
+    height: 4rem;
+    margin: 0 1rem;
+    text-decoration: none !important;
+}
+
+nav a {
+    height: 100%;
+    padding: 0.7rem 1rem;
+    text-decoration: none !important;
+    display: flex;
+    align-items: center;
+    color: rgb(238, 234, 234);
+    border-radius: 5px;
+    background-color: #4117d6;
+    transition: background-color 0.3s ease;
+    font-size: 1.5rem;
+}
+
+nav li:first-child {
+    margin-right: auto;
+}
+
+nav li:first-child a {
+    background-color: #b3cf12f3;
+}
+
+/* Navigation Link Hover Effects */
+nav a {
+    position: relative;
+    display: inline-block;
+    color: #fff;
+    /* Adjust this based on your design */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+nav ul:last-child li:not(:first-child):not(:last-child) a:hover {
+    color: #b3cf12f3;
+    font-weight: 600;
+    border-top-right-radius: 0.5rem !important;
+    border-top-left-radius: 0.5rem !important;
+    border-bottom-right-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+    background-color: #400bff;
+    text-shadow: #fff 0.1px 0.4px;
+    /* Smooth rounded edges on hover */
+}
+
+nav ul:last-child li:not(:first-child):not(:last-child) a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #b3cf12f3;
+    transition: transform 0.3s ease;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+}
+
+nav ul:last-child li:not(:first-child):not(:last-child) a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+nav ul:not(:first-child) li:first-child a {
+    background-color: #b3cf12f3;
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: scale(1);
+    transition: all 0.3s ease;
+}
+
+/* Specifically target anchor links within your navigation */
+nav a[href^="#"] {
+    scroll-behavior: smooth;
+}
+
+/* 
+-----------------------------------------------------------
+  4. Sidebar Styles 
+-----------------------------------------------------------
+*/
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    height: 100vh;
+    width: 25rem;
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(1.2rem);
+    box-shadow: -1rem 0 1rem rgba(0, 0, 0, 0.1);
+    list-style: none;
+    display: none;
+    /* Hidden by default on larger screens */
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    z-index: 99991;
+    /* Ensure sidebar is above other content */
+}
+
+.sidebar li {
+    height: 4rem;
+    width: 100%;
+    margin-bottom: 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sidebar a {
+    width: 100%;
+    padding: 1rem;
+    color: white;
+    background-color: #4117d6;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar a:hover {
+    background-color: #b3cf12f3;
+}
+
+.sidebar a svg {
+    margin-right: 1rem;
+}
+
+/* 
+  Menu Button Styles 
+*/
+.menu-button {
+    display: none;
+    /* Hidden by default on larger screens */
+}
+
+/* 
+-----------------------------------------------------------
+  5. Header Styles 
+-----------------------------------------------------------
+*/
+#header {
+    background: linear-gradient(54deg, #4117d6, #4117d6);
+    height: 120vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* 
+  Header Content Styles 
+*/
+.headerContent {
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    height: 70vh;
+    padding: 2.5rem 2rem 2rem 5rem;
+}
+
+.headerContentimg {
+    width: 100%;
+    max-width: 90rem;
+}
+
+.headerContent:last-child {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding: 0 auto;
+}
+
+.headerContent:last-child h1 {
+    color: aliceblue;
+    font-weight: 700;
+    font-size: 3rem;
+}
+
+.headerContent:last-child p {
+    color: aliceblue;
+    padding: 4rem;
+    font-weight: 500 !important;
+    font-size: 1.7rem;
+    letter-spacing: 0.1rem;
+}
+
+/* 
+-----------------------------------------------------------
+  6. Section Styles 
+-----------------------------------------------------------
+*/
+section {
+    padding: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #4117d6;
+    font-size: 3rem;
+}
+
+/* 
+-----------------------------------------------------------
+  7. Feature Card Styles 
+-----------------------------------------------------------
+*/
+.section-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.feature-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    margin: 1rem;
+    width: 25rem;
+    max-width: 300px;
+    text-align: center;
+    display: flex;
+    /* Added display: flex to enable flexbox for the card */
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card-cont-img {
+    width: auto;
+    object-fit: contain;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+}
+
+.feature-card h3 {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+    text-align: center;
+    font-size: 2rem;
+}
+
+.feature-card p {
+    padding-top: auto;
+    padding-bottom: auto;
+    color: #555;
+    line-height: 1.8rem;
+    font-size: 1.5rem;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* 
+-----------------------------------------------------------
+  8. Button Styles 
+-----------------------------------------------------------
+*/
+.feature-card button {
+    margin-top: auto;
+    /* Corrected margin-top to auto */
+    padding: 0.5rem 2rem;
+    /* Add more button styles here, like background-color, border, etc. */
+}
+
+.view-more-button button {
+    padding: 1rem 2rem;
+}
+
+.submit-button {
+    padding: 1rem 2rem;
+}
+
+.feature-card button,
+.view-more-button button,
+.submit-button {
+    background-color: #4117d6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1.5rem;
+}
+
+.feature-card button:hover,
+.view-more-button button:hover,
+.submit-button:hover {
+    background-color: #b3cf12f3;
+}
+
+/* 
+  View More Button Styles 
+*/
+.view-more-button {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+#trendingtools,
+#tools,
+#games {
+    min-height: 100vh;
+}
+
+/* 
+-----------------------------------------------------------
+  9. Scroll to Top Button Styles 
+-----------------------------------------------------------
+*/
+.scroll-to-top {
+    display: none;
+}
+
+.scroll-to-top,
+.scroll-to-home {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 1000;
+}
+
+.scroll-to-top a,
+.scroll-to-home a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #4117d6;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    position: relative;
+    z-index: 0;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.scroll-to-top a:before,
+.scroll-to-home a:before {
+    content: "";
+    background: linear-gradient(45deg,
+            #ff0000,
+            #ff7300,
+            #fffb00,
+            #48ff00,
+            #00ffd5,
+            #002bff,
+            #7a00ff,
+            #ff00c8,
+            #ff0000);
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing-button 20s linear infinite;
+    transition: opacity 0.3s ease-in-out;
+    border-radius: 50%;
+}
+
+@keyframes glowing-button {
+    0% {
+        background-position: 0 0;
+    }
+
+    50% {
+        background-position: 400% 0;
+    }
+
+    100% {
+        background-position: 0 0;
+    }
+}
+
+.scroll-to-top a:after,
+.scroll-to-home a:after {
+    z-index: -1;
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #4117d6;
+    left: 0;
+    top: 0;
+    border-radius: 50%;
+}
+
+.scroll-to-top a:hover,
+.scroll-to-home a:hover {
+    background-color: #b3cf12;
+}
+
+
+.scroll-to-home i {
+    font-size: 21px;
+    padding-top: auto;
+}
+
+.scroll-to-top i {
+    font-size: 25px;
+    margin-top: .1rem;
+}
+
+/* 
+-----------------------------------------------------------
+  10. Glowing Button Styles (button-85)
+-----------------------------------------------------------
+*/
+.button-85 {
+    padding: 0.6em 2em;
+    border: none;
+    outline: none;
+    color: rgb(255, 255, 255);
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.button-85:before {
+    content: "";
+    background: linear-gradient(45deg,
+            #ff0000,
+            #ff7300,
+            #fffb00,
+            #48ff00,
+            #00ffd5,
+            #002bff,
+            #7a00ff,
+            #ff00c8,
+            #ff0000);
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing-button-85 20s linear infinite;
+    transition: opacity 0.3s ease-in-out;
+    border-radius: 10px;
+}
+
+@keyframes glowing-button-85 {
+    0% {
+        background-position: 0 0;
+    }
+
+    50% {
+        background-position: 400% 0;
+    }
+
+    100% {
+        background-position: 0 0;
+    }
+}
+
+.button-85:after {
+    z-index: -1;
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #4040de;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+/* 
+-----------------------------------------------------------
+  11. Contact Form Styles 
+-----------------------------------------------------------
+*/
+#contacts {
+    font-family: sans-serif;
+    text-align: center;
+    padding-bottom: 0;
+    color: #f3f2ff;
+    padding: 5rem 0;
+}
+
+#contacts .contact-container {
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 4rem;
+    background-color: #f3f2ff;
+    border: 0.1rem solid #ddd;
+    box-shadow: 0px 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    border-radius: 1rem;
+}
+
+#contacts .contact-form {
+    text-align: left;
+    color: #333;
+}
+
+#contacts .form-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+#contacts .form-group {
+    width: 48%;
+    margin-bottom: 1.5rem;
+}
+
+#contacts .form-group2 {
+    width: 100%;
+    margin-bottom: 1.5rem;
+}
+
+#contacts label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #400bff;
+}
+
+#contacts input[type="text"],
+#contacts input[type="email"],
+#contacts input[type="tel"],
+#contacts select,
+#contacts textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 0.1rem solid #ddd;
+    border-radius: 0.5rem;
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    text-transform: capitalize;
+}
+
+#contacts input[type="text"]:focus,
+#contacts input[type="email"]:focus,
+#contacts input[type="tel"]:focus,
+#contacts select:focus,
+#contacts textarea:focus {
+    border-color: #400bff;
+    box-shadow: 0px 0px 10px rgba(64, 11, 255, 0.2);
+    outline: 1px #4117d6;
+    text-transform: capitalize;
+}
+
+#contacts input[type="email"],
+#contacts input[type="tel"],
+#contacts input[type="email"]:focus,
+#contacts input[type="tel"]:foucs {
+    text-transform: none !important;
+}
+
+#contacts select {
+    appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='black' xmlns='http://www.w3.org/2000/svg'  viewBox='0 0 24 24' width='2.4rem' height='2.4rem'><path d='M7 10l5 5 5-5z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1.6rem 1.2rem;
+    padding-right: 3rem;
+}
+
+#contacts textarea {
+    height: 12rem;
+    overflow: scroll;
+    resize: none;
+}
+
+#contacts button {
+    padding: 0.6rem 20vh;
+    background-color: #400bff;
+    color: #f3f2ff;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#contacts button:hover {
+    background-color: #b3cf12;
+    transform: scale(1.05);
+}
+
+#contacts #result,
+.game3notification {
+    position: fixed;
+    top: 10%;
+    right: -100%;
+    padding: 1rem 1.5rem;
+    color: #fff;
+    background-color: #4117d6;
+    border-radius: 3px;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    display: none;
+    z-index: 1000;
+    transition: all 0.5s ease;
+    font-family: "Roboto", sans-serif;
+}
+
+#contacts #result.show,
+.game3notification.show {
+    display: block;
+    right: 3%;
+    opacity: 1;
+    animation: slideInFromRight 0.5s forwards ease-out;
+}
+
+@keyframes slideInFromRight {
+    from {
+        right: -100%;
+        opacity: 0;
+    }
+
+    to {
+        right: 3%;
+        opacity: 1;
+    }
+}
+
+/* 
+-----------------------------------------------------------
+  12. Media Queries for Responsiveness 
+-----------------------------------------------------------
+*/
+
+/*
+-----------------------------------------------------------
+ Large Desktop Styles 
+-----------------------------------------------------------
+*/
+@media (min-width: 815px) {
+
+    /* Clip-path for angled header background */
+    #header {
+        clip-path: polygon(0% 0%, 100% 0%, 100% 65%, 0% 83%);
+    }
+
+    /* Floating animation for header content */
+    @keyframes floating {
+        0% {
+            transform: translate(0, 0);
+        }
+
+        50% {
+            transform: translate(0, -4px);
+        }
+
+        100% {
+            transform: translate(0, 0);
+        }
+    }
+
+    .headerContent {
+        animation: floating 5s ease-in-out infinite;
+        z-index: -1;
+    }
+
+    /* Show scroll to top button on larger screens */
+    .scroll-to-top {
+        display: block;
+    }
+}
+
+/* Styles for landscape orientation with width greater than half of height */
+@media (orientation: landscape) and (min-aspect-ratio: 2/0.7) {
+    #header {
+        clip-path: none;
+    }
+}
+
+/* 
+-----------------------------------------------------------
+Tablet and Mobile Styles 
+-----------------------------------------------------------
+*/
+@media (max-width: 814px) {
+
+    /* Navigation Bar Adjustments */
+    nav ul {
+        padding-top: 2.5rem;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100%;
+    }
+
+    nav ul:not(:last-child) li:not(:first-child) {
+        margin-top: 1rem;
+    }
+
+    nav li {
+        height: 4.9rem;
+        margin-bottom: 1rem;
+    }
+
+    nav a {
+        padding: 1rem 1.3rem;
+        font-size: 1.8rem;
+    }
+
+    nav ul:first-child li:not(:first-child):hover a {
+        background-color: #34ebba;
+        color: #4117d6;
+        border: 1px inset #4117d6;
+        transform: scale(1);
+        transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    nav ul:not(:last-child) li:first-child:hover a,
+    nav ul:last-child li:last-child:hover a {
+        background-color: #b3cf12;
+        color: red;
+        border: 1px solid #ffffff;
+        transform: rotateY(180deg);
+        transition: all 0.3s ease-in-out;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3),
+            0 0 15px rgba(179, 207, 18, 0.7);
+        border-radius: 5px;
+        opacity: 0.9;
+        background-image: linear-gradient(45deg, #b3cf12, #a1bf10);
+        filter: brightness(1.15);
+
+        svg {
+            height: 2.2rem;
+            width: 2.2rem;
+        }
+    }
+
+    nav ul:not(:first-child) li:last-child a,
+    nav ul li:first-child a {
+        background-color: #b3cf12f3;
+        fill: white;
+        stroke: white;
+        stroke-width: 2rem;
+    }
+
+    /* Hide elements with class 'hideOnMobile' */
+    .hideOnMobile {
+        display: none;
+    }
+
+    /* Show menu button on smaller screens */
+    .menu-button {
+        display: block;
+    }
+
+    /* Sidebar Adjustments */
+    .sidebar {
+        height: 100vh;
+        padding-right: 3.3rem;
+    }
+
+    .sidebar li {
+        height: 5rem;
+    }
+
+    .sidebar a {
+        padding-top: 1.2rem;
+    }
+
+    /* Header Content Adjustments */
+    #header {
+        clip-path: none;
+    }
+
+    .headerContent {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        padding-top: 7rem;
+        align-items: center;
+        text-align: center;
+    }
+
+    .headerContentimg {
+        width: 100%;
+        max-width: 40rem;
+        margin-bottom: 4rem;
+        padding: 2rem 1rem;
+    }
+
+    .headerContent:last-child h1 {
+        font-size: 2.7rem;
+        color: #f2f2f2;
+        padding: 0.2rem 0.5rem;
+    }
+
+    .headerContent:last-child p {
+        padding: 3rem 1rem;
+        font-size: 1.2rem;
+        color: #f2f2f2;
+    }
+
+    .headerContent:last-child button {
+        padding: 1rem 1.8rem !important;
+        font-size: 1.5rem;
+        color: #f2f2f2;
+    }
+}
+
+/*
+-----------------------------------------------------------
+ Smaller Tablet and Mobile Styles
+-----------------------------------------------------------
+*/
+@media (max-width: 768px) {
+    .section-content {
+        flex-direction: column;
+    }
+
+    .feature-card {
+        width: 100%;
+        margin: 0 0 2rem 0;
+    }
+
+    .headerContent {
+        padding: 7rem 1.5rem 2rem;
+    }
+
+    .headerContentimg {
+        margin-bottom: 4rem;
+        padding: 6rem 1rem 1rem 1rem;
+    }
+
+    #contacts button {
+        padding: 1rem 7rem;
+    }
+
+    /* Contact Form Responsive Styles */
+    #contacts .form-row {
+        flex-direction: column;
+    }
+
+    #contacts .form-group,
+    .form-group2 {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    #contacts textarea {
+        height: 60px;
+    }
+}
+
+/* 
+-----------------------------------------------------------
+Small Mobile Styles
+-----------------------------------------------------------
+*/
+@media (max-width: 400px) {
+    .sidebar {
+        width: 100%;
+    }
+
+    .headerContent {
+        padding: 7rem 2rem 2rem 2rem;
+    }
+
+    .headerContentimg {
+        margin-bottom: 3rem;
+        padding: 6rem 1rem 0rem 1rem;
+    }
+
+    .section-content-search-2 input:focus {
+        width: 26rem;
+    }
+
+    #contacts .contact-container {
+        padding: 3rem;
+    }
+
+    #contacts button {
+        padding: 1rem 2rem;
+    }
+
+    #multihub-todolist-add-button {
+        margin-left: 0;
+        margin-top: 1rem;
+        width: 100%;
+    }
+
+    .multihub-todolist-form {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 285px) {
+    .nextPageUpperBottomCard {
+        flex-direction: column;
+        align-items: center;
+        align-self: center;
+    }
+
+    .copy-button,
+    .back-button,
+    .linkedin-button,
+    .download-button {
+        width: 100%;
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 200px) {
+    #contacts button {
+        padding: 1rem 0.4rem;
+    }
+}
+
+
+/* 
+-----------------------------------------------------------
+  13. Alternate Section Background Colors
+-----------------------------------------------------------
+*/
+section:nth-of-type(even) {
+    background: linear-gradient(135deg, #f3f2ff, #e0dffd);
+}
+
+/* 
+-----------------------------------------------------------
+  14. Tool Section Styles 
+-----------------------------------------------------------
+*/
+#toolSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: slideInUp 1s ease-out;
+    padding: 0;
+    margin: 0;
+}
+
+
+#toolSection {
+    max-height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: #4117d6 #f1f1f1;
+}
+
+#toolSection::-webkit-scrollbar {
+    width: 0.5rem;
+}
+
+#toolSection::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+#toolSection::-webkit-scrollbar-thumb {
+    background-color: #4117d6;
+    border-radius: 10px;
+    border: 2px solid #f1f1f1;
+}
+
+#toolSection::-webkit-scrollbar-thumb:hover {
+    background-color: #b3cf12;
+    box-shadow: 0 0 10px rgba(179, 207, 18, 0.6);
+}
+
+#toolSection::-webkit-scrollbar-corner {
+    background-color: #f1f1f1;
+}
+
+
+/* 
+-----------------------------------------------------------
+  15. Section Content Search Styles 
+-----------------------------------------------------------
+*/
+.section-content-search-2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+    animation: fadeIn 1s ease-in-out;
+    padding-bottom: 5rem;
+    padding-top: 5rem;
+    width: 100%;
+    background-color: #fff;
+    border-bottom-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+}
+
+.section-content-search-2 h1 {
+    color: #4117d6;
+    text-align: center;
+    font-family: "Mochiy Pop One";
+    font-weight: 600;
+    font-size: 2.4rem;
+    letter-spacing: 0.1rem;
+    width: 70%;
+}
+
+.section-content-search-2 p {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #4117d6;
+    font-family: "Mochiy Pop One";
+    font-weight: 500;
+    font-size: 1rem;
+    letter-spacing: 0.1rem;
+    word-spacing: 0.2rem;
+    width: 70%;
+}
+
+.section-content-search-2 input {
+    width: 25rem;
+    padding: 1rem;
+    border: 0.2rem solid #4117d6;
+    border-radius: 0.5rem;
+    font-size: 1.6rem;
+    transition: width 0.3s ease;
+    text-align: center;
+    color: #4117d6;
+    text-transform: capitalize;
+    text-decoration: none;
+    font-family: roboto;
+}
+
+.section-content-search-2 input::placeholder {
+    text-align: center;
+    font-weight: 400;
+    color: #4117d6;
+}
+
+.section-content-search-2 input:focus {
+    color: #4117d6;
+    width: 28rem;
+    outline: none;
+    border: 0.2rem solid #fafafa;
+    text-align: center;
+    border-bottom: 0.5rem solid #4117d6;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    text-transform: capitalize;
+}
+
+/* 
+-----------------------------------------------------------
+  16. Feature Card Styles (Tool Section)
+-----------------------------------------------------------
+*/
+.section-content-2 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 2rem;
+    animation: fadeIn 1.5s ease-in-out;
+    margin-bottom: 3rem;
+}
+
+.feature-card-2 {
+    background-color: #fff;
+    border-radius: 1rem;
+    box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    margin: 1rem;
+    width: 25rem;
+    max-width: 30rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeInUp 1s ease-out;
+}
+
+.feature-card-2 img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.feature-card-2:hover img {
+    transform: scale(1.05);
+}
+
+.feature-card-2 h3 {
+    margin-bottom: 0.5rem;
+    line-height: 3rem;
+    text-align: center;
+    font-size: 1.7rem;
+    font-weight: bold;
+    font-family: Sans-Serif;
+}
+
+.feature-card-2 p {
+    margin-bottom: 1rem;
+    color: #555;
+    line-height: 1.8rem;
+    font-size: 1.3rem;
+    word-spacing: 0.2rem;
+    font-weight: 600;
+    font-family: "Bitter", serif;
+}
+
+.feature-card-2:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0.8rem 1.6rem rgba(0, 0, 0, 0.2);
+}
+
+/* Button Styles */
+.feature-card-2 button {
+    background-color: #4117d6;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-size: 1.5rem;
+    margin-top: auto;
+}
+
+.feature-card-2 button:hover {
+    background-color: #b3cf12f3;
+    transform: translateY(-3px);
+}
+
+/* Media Query for Smaller Tablet and Mobile */
+@media (max-width: 575px) {
+    .section-content-2 {
+        flex-direction: column;
+    }
+
+    .feature-card-2 {
+        width: 90%;
+        margin-bottom: 2rem;
+    }
+
+    .section-content-search-2 h1 {
+        font-size: 1.2rem;
+        width: 95%;
+    }
+
+    .section-content-search-2 p {
+        font-size: 0.8rem;
+        width: 95%;
+    }
+}
+
+/* Media Query for Medium Devices */
+@media (min-width: 576px) and (max-width: 767px) {
+    .section-content-search-2 h1 {
+        font-size: 2rem;
+        width: 80%;
+    }
+
+    .section-content-search-2 p {
+        font-size: 1rem;
+        width: 80%;
+    }
+}
+
+/* 
+-----------------------------------------------------------
+  17. Animation Keyframes 
+-----------------------------------------------------------
+*/
+@keyframes slideInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/*
+-----------------------------------------------------------
+  18. Next Page Styles (Tool Section)
+-----------------------------------------------------------
+*/
+#nextPage1,
+#nextPage2,
+#game1sec,
+#game2sec,
+#game3sec,
+#game4sec {
+    padding: 0;
+    margin: 0;
+}
+
+.nextPageSideCard {
+    background-color: #fefefe;
+    padding: 3.4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 12px 0px 0px 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.nextPageSideCard img {
+    width: 100px;
+    margin-bottom: 24px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.nextPageSideCard img:hover {
+    transform: scale(1.05);
+}
+
+.nextPageSideCard h2 {
+    font-size: 1.8rem;
+    color: #4a148c;
+    margin-bottom: 12px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+}
+
+.nextPageSideCard h2:hover {
+    color: #311b92;
+}
+
+.nextPageSideCard p {
+    font-size: 15px;
+    color: #424242;
+    text-align: center;
+    margin-bottom: 24px;
+    line-height: 1.6;
+}
+
+.nextPageSideCard label {
+    align-self: flex-start;
+    margin-top: 12px;
+    font-size: 15px;
+    color: #212121;
+    font-weight: 700;
+}
+
+.nextPageSideCard input,
+.nextPageSideCard textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    font-size: 14px;
+    background: #fafafa;
+    transition: border 0.3s ease, box-shadow 0.3s ease,
+        background-color 0.3s ease;
+}
+
+.nextPageSideCard input:focus,
+.nextPageSideCard textarea:focus {
+    border-color: #4a148c;
+    box-shadow: 0 0 12px rgba(74, 20, 140, 0.3);
+    background-color: #ffffff;
+}
+
+.generate-button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 2rem;
+    font-size: 16px;
+    color: #fff;
+    background: linear-gradient(45deg, #6200ea, #9c27b0);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.4s ease, transform 0.4s ease,
+        box-shadow 0.4s ease, border-radius 0.4s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.generate-button:hover {
+    background: linear-gradient(45deg, #3700b3, #8e24aa);
+    transform: translateY(-1px) scale(1.03);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2),
+        0 0 10px rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+}
+
+.nextPageResponseCard {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background: linear-gradient(135deg, #ffffff, #f2f2f2);
+    border-radius: 0px 12px 12px 0px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ql-toolbar.ql-snow {
+    background: linear-gradient(135deg, #ffffff, #f7f7f7);
+    border: 2px solid #ddd;
+    border-radius: 8px 8px 0px 0px;
+    padding: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1), 0 4px 4px rgba(0, 0, 0, 0.05);
+    transition: background 0.3s ease, box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.ql-toolbar.ql-snow:hover {
+    background: linear-gradient(135deg, #f5f5f5, #eaeaea);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15),
+        0 6px 6px rgba(0, 0, 0, 0.1);
+    border-color: #ccc;
+}
+
+.nextPageResponseCard h2 {
+    margin-bottom: 24px;
+    font-size: 28px;
+    font-weight: 700;
+    color: #4a148c;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 2px solid #6200ea;
+    padding-bottom: 10px;
+}
+
+#editor {
+    width: 100%;
+    border: 2px solid #ddd;
+    background-color: #ffffff;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#editor:focus-within {
+    border-color: #6200ea;
+    box-shadow: 0 0 10px rgba(98, 0, 234, 0.1);
+}
+
+@media (min-width: 768px) {
+    #editor {
+        height: 480px;
+        overflow-y: auto;
+    }
+}
+
+.ql-editor {
+    padding: 16px;
+    color: #1fc440;
+    font-size: 16px;
+    line-height: 1.6;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.ql-editor strong {
+    margin-right: 5px;
+    color: #4a148c;
+    font-weight: bold;
+    background: linear-gradient(135deg, #ffffff 0%, #e3e3e3 100%);
+    padding: 2px 4px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ql-editor strong:hover {
+    color: #311b92;
+    background: linear-gradient(135deg, #f2f2f2 0%, #d4d4d4 100%);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.ql-editor ul,
+.ql-editor ol {
+    margin: 16px auto;
+    color: #d32f2f;
+    background: #f9f9f9;
+    padding: 10px 20px;
+    border-left: 4px solid #d32f2f;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ql-editor ul:hover,
+.ql-editor ol:hover {
+    background: #f2f2f2;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.ql-editor ul li,
+.ql-editor ol li {
+    padding: 8px 0;
+    color: #424242;
+    transition: color 0.3s ease;
+}
+
+.ql-editor ul li:hover,
+.ql-editor ol li:hover {
+    color: #b71c1c;
+}
+
+.ql-editor p {
+    margin: 14px auto;
+    color: #1a237e;
+    font-size: 16px;
+    line-height: 1.8;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.ql-editor p:hover {
+    color: #0d47a1;
+    background-color: #e3f2fd;
+    padding: 2px 4px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.ql-editor img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 10px 0;
+}
+
+.ql-editor video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 10px 0;
+}
+
+.copy-button,
+.back-button,
+.linkedin-button,
+.download-button {
+    padding: 10px 20px;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #fff;
+    background: linear-gradient(45deg, #6200ea, #9c27b0);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.4s ease, transform 0.4s ease,
+        box-shadow 0.4s ease, border-radius 0.4s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.copy-button:hover,
+.back-button:hover,
+.linkedin-button:hover,
+.download-button:hover {
+    background: linear-gradient(45deg, #3700b3, #8e24aa);
+    transform: translateY(-1px) scale(1.05);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3),
+        0 0 5px rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+}
+
+.nextPageUpperBottomCard {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.back-button {
+    width: 105px;
+}
+
+.back-button i,
+.copy-button i,
+.linkedin-button i,
+.download-button i {
+    margin-right: 10px;
+}
+
+.ql-toolbar.ql-snow {
+    width: 100%;
+    display: block;
+}
+
+.sd-info {
+    font: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+    border: 3px solid #51388c;
+    color: #1fc440;
+    width: 100%;
+    text-align: center;
+}
+
+
+.next-page-download-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1001;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.next-page-download-popup-content {
+    text-align: center;
+    margin: 2rem;
+}
+
+.next-page-download-option {
+    width: 80%;
+    padding: 10px;
+    margin-top: 2rem;
+    font-size: 16px;
+    color: #fff;
+    background: linear-gradient(45deg, #6200ea, #9c27b0);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.4s ease, transform 0.4s ease,
+        box-shadow 0.4s ease, border-radius 0.4s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+
+}
+
+.next-page-download-option img {
+    width: 3rem;
+    height: 3rem;
+    position: absolute;
+    top: -.7rem;
+    right: -1rem;
+}
+
+.next-page-download-option:hover {
+    background: linear-gradient(45deg, #3700b3, #8e24aa);
+    transform: translateY(-1px) scale(1.03);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2),
+        0 0 10px rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+}
+
+.next-page-download-close-btn {
+    background: none;
+    border: none;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    color: #aaa;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.next-page-download-close-btn:focus,
+.next-page-download-close-btn:hover {
+    color: black;
+    text-decoration: none;
+}
+
+/* 
+-----------------------------------------------------------
+  19. Game 1 Styles 
+-----------------------------------------------------------
+*/
+.game1-bg-container {
+    background-color: #242ab6;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.game1-game-description {
+    color: #ffffff;
+    font-family: "Comic Sans MS";
+    font-weight: 500;
+    font-size: 3rem;
+    margin-top: 2rem;
+}
+
+.game1-guess-bg-container {
+    background-color: #242ab6;
+}
+
+.game1-guess-heading {
+    font-family: "Roboto";
+    font-weight: bold;
+    color: white;
+    font-size: 3rem;
+    padding-bottom: 3rem;
+    padding-top: 3rem;
+}
+
+.game1-guess-number-image {
+    width: 5rem;
+}
+
+.game1-user-input {
+    width: 80%;
+    max-width: 30rem;
+    font-family: "Roboto";
+    font-weight: 500;
+    font-size: 2rem;
+    padding: 1rem;
+    text-align: center;
+    border: 0.4rem inset blue;
+    box-shadow: 0 0 0 0.5rem blue;
+    color: #7d5eeb;
+    margin-bottom: 4rem;
+}
+
+.game1-user-input:hover {
+    border: 0.4rem inset orange;
+    box-shadow: 0 0 0 0.5rem orange;
+}
+
+.game1-user-input::placeholder {
+    text-align: center;
+    font-weight: 400;
+    color: #7d5eeb;
+}
+
+.game1-user-input:focus {
+    color: #4117d6;
+    box-shadow: none;
+    text-align: center;
+    border: 0.4rem inset #b3cf12f3;
+    outline: 0.4rem outset #b3cf12f3;
+    text-transform: capitalize;
+}
+
+.game1-game-result {
+    font-family: "Roboto";
+    font-weight: 500;
+    font-size: 2.4rem;
+    color: #ffffff;
+    padding: 1rem;
+}
+
+.game1-game-result1 {
+    font-family: "Roboto";
+    font-weight: 500;
+    font-size: 2rem;
+    color: #ffffff;
+    padding: 1rem;
+}
+
+.game1-check-guess {
+    font-size: 1.6rem;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin: 2rem;
+    width: 17rem;
+    font-weight: bold;
+    letter-spacing: 0.1rem;
+}
+
+.game1-check-guess:hover {
+    color: #fbfcf9f3 !important;
+}
+
+/* Media Query for Extra Small Devices */
+@media (max-width: 400px) {
+    .game1-game-description {
+        font-size: 2.3rem;
+        word-spacing: 0.3rem;
+    }
+
+    .game1-guess-heading {
+        font-size: 2.5rem;
+    }
+
+    .game1-user-input {
+        font-size: 1.8rem;
+    }
+
+    .game1-game-result,
+    .game1-game-result1 {
+        font-size: 2rem;
+    }
+
+    .game1-check-guess {
+        font-size: 1.4rem;
+        width: 14rem;
+    }
+}
+
+/* Media Query for Ultra Small Devices */
+@media (max-width: 200px) {
+    .game1-game-description {
+        font-size: 1.2rem;
+        word-spacing: 0.1rem;
+        margin-top: 1rem;
+    }
+
+    .game1-guess-heading {
+        font-size: 1.5rem;
+        padding-bottom: 1.5rem;
+        padding-top: 1.5rem;
+    }
+
+    .game1-guess-number-image {
+        width: 3rem;
+    }
+
+    .game1-user-input {
+        font-size: 1rem;
+        padding: 0.5rem;
+        border: 0.2rem inset blue;
+        box-shadow: 0 0 0 0.3rem blue;
+    }
+
+    .game1-game-result,
+    .game1-game-result1 {
+        font-size: 1.2rem;
+    }
+
+    .game1-check-guess {
+        font-size: 1rem;
+        width: 10rem;
+        padding: 0.5rem;
+    }
+}
+
+
+/* 
+-----------------------------------------------------------
+  20. Game 2 Styles 
+-----------------------------------------------------------
+*/
+
+#game2sec {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #4117d6;
+    color: #fff;
+    transition: background-color 0.3s ease-in-out;
+}
+
+#game2sec h1,
+#game2sec h2,
+#game2sec h3 {
+    font-weight: 700;
+    margin: 0;
+}
+
+#game2sec h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+#game2sec h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+#game2sec h3 {
+    font-size: 1.75rem;
+}
+
+/* Category Selection */
+#game2-category-selection {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+    width: 100%;
+    max-width: 120rem;
+}
+
+.game2-category-card {
+    padding: 2rem;
+    border-radius: 1.2rem;
+    background-color: #fff;
+    box-shadow: 0 0.8rem 1.6rem rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    width: 28rem;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game2-category-card:hover {
+    transform: translateY(-0.8rem);
+    box-shadow: 0 1.2rem 2.4rem rgba(0, 0, 0, 0.4);
+}
+
+.game2-category-card-text {
+    padding-top: 1rem;
+    color: #4117d6;
+    font-size: 2rem;
+}
+
+/* Question Number */
+#game2-question-number {
+    font-size: 1.5rem;
+    color: #4117d6;
+    margin-bottom: 1rem;
+}
+
+/* Quiz Container */
+#game2-quiz-container {
+    display: none;
+    /* Initially hidden */
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 3rem;
+    border-radius: 1.6rem;
+    background-color: #fff;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 70rem;
+    text-align: center;
+    color: #4117d6;
+}
+
+#game2-question-area {
+    width: 100%;
+}
+
+#game2-question-text {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+#game2-options-area {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    width: 100%;
+    font-size: 1.5rem;
+}
+
+.game2-option {
+    padding: 1.2rem;
+    border: 0.2rem solid #4117d6;
+    border-radius: 0.8rem;
+    cursor: pointer;
+    background-color: #fff;
+    color: #4117d6;
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.game2-option:hover {
+    background-color: #4117d6;
+    color: #fff;
+    box-shadow: 0 0.4rem 1rem rgba(0, 0, 0, 0.2);
+}
+
+/* Timer and Score Area */
+#game2-timer-area,
+#game2-score-area {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #4117d6;
+}
+
+/* Buttons */
+#game2sec button {
+    padding: 1.2rem 2rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    letter-spacing: 0.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+#game2sec button:hover {
+    color: #f6f6f8;
+    transform: translateY(-0.3rem);
+}
+
+/* Results Pop-up */
+.game2-popup {
+    position: fixed !important;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #5e36eb;
+    padding: 3rem;
+    border-radius: 1.6rem;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.3);
+    z-index: 100;
+    width: 90%;
+    max-width: 40rem;
+    text-align: center;
+    display: none;
+    color: #fff;
+}
+
+.game2-popup-content {
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.game2-popup-content-title {
+    color: #fff;
+}
+
+.game2-popup-content hr {
+    border: 0.15rem solid #fff;
+    margin-bottom: 1.5rem;
+}
+
+.game2-popup-content p {
+    font-size: 1.2rem;
+}
+
+.game2-close-popup {
+    position: absolute;
+    right: 1.5rem;
+    top: 1.5rem;
+    cursor: pointer;
+    font-size: 2.5rem;
+    color: #fff;
+}
+
+/* Back Button */
+#game2-back-button {
+    margin-top: 1.5rem;
+    width: 11rem;
+    padding: 1rem 2rem;
+    font-weight: bold;
+    letter-spacing: 0.1rem;
+    font-size: 1.1rem;
+}
+
+#game2-back-button:hover {
+    color: #fff !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #game2-options-area {
+        grid-template-columns: 1fr;
+    }
+
+    .game2-category-card {
+        width: 90%;
+        max-width: 30rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #game2sec h1 {
+        font-size: 2rem;
+    }
+
+    #game2sec h2 {
+        font-size: 1.75rem;
+        margin-top: auto;
+    }
+
+    #game2sec h3 {
+        font-size: 1.5rem;
+    }
+
+    .game2-category-card {
+        padding: 0.5rem;
+    }
+
+    #game2-quiz-container {
+        padding: 2rem;
+        margin: 1rem;
+    }
+}
+
+/* 
+-----------------------------------------------------------
+  21. Game 3 Styles 
+-----------------------------------------------------------
+*/
+
+#game3sec {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    background: url("https://i.pinimg.com/236x/85/f5/76/85f576122b7c56b629dd1c2632f7f438.jpg");
+    background-size: cover;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#game3sec #game3-info {
+    display: flex;
+    width: 60%;
+    justify-content: space-between;
+}
+
+#game3sec #game3-board {
+    width: 80vw;
+    height: 80vw;
+    max-width: 54rem;
+    max-height: 54rem;
+    margin: 1rem auto;
+    display: flex;
+    flex-wrap: wrap;
+    background: url("https://st.depositphotos.com/1000152/1823/i/450/depositphotos_18235093-stock-photo-green-grass.jpg");
+    background-size: cover;
+    border: 0.5rem dashed white;
+    border-radius: 2.5rem;
+}
+
+#game3sec #game3-board div {
+    width: 33.33%;
+    height: 33.33%;
+    background-image: url("https://png.pngtree.com/png-vector/20220521/ourmid/pngtree-ground-hole-grass-deep-dark-png-image_4703739.png");
+    background-size: 70%;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-position: 32% 76%;
+}
+
+#game3sec #game3-board div img {
+    width: 60%;
+    height: 60%;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+#game3sec #game3-title,
+#game3sec #game3-score,
+#game3sec #game3-timer {
+    font-size: 2rem;
+    margin: 4rem auto 1rem;
+    color: white;
+}
+
+/* Start screen styling */
+#game3sec #game3-startScreen,
+#game3sec #game3-popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(12, 0, 246, 0.76);
+    color: white;
+    padding: 3rem;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+#game3sec #game3-popup {
+    background-color: rgba(234, 130, 7, 0.51) !important;
+}
+
+#game3sec #game3-startScreen h1 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+}
+
+#game3sec #game3-startScreen button {
+    font-size: 2rem;
+    padding: 1rem 2rem;
+    border: none;
+    background-color: green;
+    color: white;
+    border-radius: 1rem;
+}
+
+#game3sec #game3-popup h2 {
+    margin: 0;
+    margin-top: auto;
+    font-size: 3rem;
+}
+
+#game3sec #game3-popup p {
+    font-size: 2rem;
+}
+
+#game3sec #game3-popup button {
+    margin-bottom: auto;
+}
+
+@media (max-width: 600px) {
+
+    #game3sec #game3-title,
+    #game3sec #game3-score,
+    #game3sec #game3-timer {
+        font-size: 1.5rem;
+    }
+
+    #game3sec #game3-popup h2 {
+        font-size: 2.5rem;
+    }
+
+    #game3sec #game3-popup p {
+        font-size: 1.5rem;
+    }
+
+    #game3sec #game3-startScreen h1 {
+        font-size: 2rem;
+    }
+
+    #game3sec #game3-startScreen button {
+        font-size: 1.5rem;
+        padding: 1rem 1.5rem;
+    }
+}
+
+/* 
+-----------------------------------------------------------
+  22. Todo List Styles 
+-----------------------------------------------------------
+*/
+
+#todolist {
+    padding: 20px;
+    display: flex !important;
+    flex-direction: column;
+    align-items: center !important;
+    justify-content: center !important;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f3f2ff, #ffffff);
+    font-family: 'Inter', sans-serif;
+}
+
+.multihub-todolist-wrapper {
+    width: 90%;
+    max-width: 70rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    background: #ffffff;
+    border-radius: 2rem;
+    padding: 2rem;
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1);
+    border: 0.1rem solid #e0e0e0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.multihub-todolist-wrapper:hover {
+    transform: scale(1.02);
+    box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.15);
+}
+
+#multihub-todolist-list {
+    max-height: 30rem;
+    overflow-y: auto;
+    scrollbar-width: thin;
+}
+
+#multihub-todolist-input {
+    padding: 1.5rem 2rem;
+    width: 100%;
+    background: #fafafa;
+    border: 0.2rem solid #b3cf12f3;
+    border-radius: 100rem;
+    font: inherit;
+    font-size: 1.3rem !important;
+    color: #4117d6;
+    caret-color: #4117d6;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#multihub-todolist-input:focus {
+    outline: none;
+    border-color: #4117d6;
+    box-shadow: 0 0 1rem rgba(65, 23, 214, 0.25);
+}
+
+.multihub-todolist-form {
+    position: relative;
+    display: flex;
+    width: 100%;
+}
+
+#multihub-todolist-add-button {
+    background-color: #4117d6;
+    padding: 1.5rem 2.5rem;
+    border: none;
+    border-radius: 100rem;
+    font: inherit;
+    font-weight: 600;
+    color: #f3f2ff;
+    cursor: pointer;
+    margin-left: 1rem;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#multihub-todolist-add-button:hover {
+    background-color: #3012a3;
+    box-shadow: 0 0.5rem 1rem rgba(48, 18, 163, 0.3);
+}
+
+.multihub-todolist-todo {
+    margin: 1rem;
+    padding: 1rem 2rem;
+    background-color: #b3cf12f3;
+    border-radius: 1.5rem;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.multihub-todolist-todo:hover {
+    background-color: #a2b10df3;
+    transform: translateX(0.5rem);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+.multihub-todolist-todo .multihub-todolist-todo-text {
+    padding: 1.5rem;
+    padding-right: 0;
+    flex-grow: 1;
+    transition: 200ms ease;
+    word-break: break-word;
+    color: #4117d6;
+    text-transform: capitalize;
+}
+
+.multihub-todolist-todo-text {
+    font-size: 1.5rem;
+}
+
+.multihub-todolist-delete-button {
+    padding: 0.3rem;
+    background: none;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-left: auto;
+}
+
+.multihub-todolist-delete-button svg {
+    transition: transform 0.2s ease, fill 0.3s ease;
+    fill: #4117d6;
+}
+
+.multihub-todolist-delete-button:hover svg {
+    fill: #ff0033;
+    transform: rotate(20deg);
+}
+
+.multihub-todolist-custom-checkbox {
+    border: 0.2rem solid #4117d6;
+    border-radius: 50%;
+    min-height: 2rem;
+    min-width: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    margin-right: 1rem;
+}
+
+#todolist input[type="checkbox"]:checked~.multihub-todolist-custom-checkbox {
+    background-color: #4117d6;
+    transform: scale(1.1);
+    box-shadow: 0 0.5rem 1rem rgba(65, 23, 214, 0.3);
+}
+
+#todolist input[type="checkbox"]:checked~.multihub-todolist-custom-checkbox svg {
+    fill: #f3f2ff;
+}
+
+#todolist input[type="checkbox"]:checked~.multihub-todolist-todo-text {
+    text-decoration: line-through;
+    color: #4117d659;
+}
+
+#todolist input[type="checkbox"] {
+    display: none;
+}
+
+@media (max-width: 400px) {
+    #multihub-todolist-add-button {
+        margin-left: 0;
+        margin-top: 1rem;
+        width: 100%;
+    }
+
+    .multihub-todolist-form {
+        flex-direction: column;
+    }
+}
+
+#multihub-todolist-list {
+    scrollbar-width: thin;
+}
+
+#multihub-todolist-list::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+/* 
+-----------------------------------------------------------
+  23. About Section Styles 
+-----------------------------------------------------------
+*/
+#about {
+    display: none;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.popup-content {
+    background-color: #fff;
+    margin: 5rem auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90%;
+    max-width: 90%;
+    height: auto;
+    max-height: 80%;
+    overflow-y: auto;
+    border-radius: 10px;
+}
+
+.popup-content::-webkit-scrollbar {
+    width: 0.5rem;
+}
+
+.popup-content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.popup-content::-webkit-scrollbar-thumb {
+    background-color: #4117d6;
+    border-radius: 10px;
+    border: 2px solid #f1f1f1;
+}
+
+.popup-content::-webkit-scrollbar-thumb:hover {
+    background-color: #b3cf12;
+    box-shadow: 0 0 10px rgba(179, 207, 18, 0.6);
+}
+
+.popup-content::-webkit-scrollbar-corner {
+    background-color: #f1f1f1;
+}
+
+/* Close button */
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 2.8rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: black;
+    text-decoration: none;
+}
+
+/* About Section Styles */
+#about {
+    padding: 5rem;
+    background-color: #f7f6ff;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    line-height: 1.6;
+}
+
+#about h2 {
+    font-family: 'Lobster', cursive;
+    font-size: 4rem;
+    color: #4117d6;
+    margin-bottom: 2rem;
+}
+
+#about h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: #4117d6;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+#about p {
+    font-size: 1.6rem;
+    color: #555;
+    margin-bottom: 2rem;
+    font-family: 'Open Sans', sans-serif;
+}
+
+#about ul {
+    list-style: none;
+    padding: 0;
+    font-size: 1.6rem;
+    text-align: left;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+#about ul li {
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-left: 2.5rem;
+}
+
+#about ul li:before {
+    content: "\2022";
+    position: absolute;
+    left: 0;
+    color: #b3cf12f3;
+    font-size: 2rem;
+    line-height: 1;
+}
+
+#about ul li strong {
+    font-family: 'Playfair Display', serif;
+    color: #4117d6;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+/* Media Queries for About Section */
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .popup-content {
+        width: 90%;
+        margin: 10rem auto;
+        padding: 1.5rem;
+    }
+
+    #about {
+        padding: 2.5rem;
+    }
+
+    #about h2 {
+        font-size: 3rem;
+    }
+
+    #about h3 {
+        font-size: 2rem;
+    }
+
+    #about p,
+    #about ul {
+        font-size: 1.4rem;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) and (max-width: 768px) {
+    .popup-content {
+        width: 85%;
+        margin: 10rem auto;
+        padding: 2rem;
+    }
+
+    #about h2 {
+        font-size: 3.5rem;
+    }
+
+    #about h3 {
+        font-size: 2.2rem;
+    }
+
+    #about p,
+    #about ul {
+        font-size: 1.5rem;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+    .popup-content {
+        width: 80%;
+        margin: 8rem auto;
+        padding: 2.5rem;
+    }
+
+    #about h2 {
+        font-size: 3.8rem;
+    }
+
+    #about h3 {
+        font-size: 2.3rem;
+    }
+
+    #about p,
+    #about ul {
+        font-size: 1.6rem;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .popup-content {
+        width: 70%;
+        margin: 8rem auto;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .popup-content {
+        width: 60%;
+        margin: 8rem auto;
+    }
+}
+
+/* 
+-----------------------------------------------------------
+  24. Footer Styles 
+-----------------------------------------------------------
+*/
+
+footer {
+    background-color: #4117d6;
+    color: #f3f2ff;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 100vw;
+    margin: 0 1.7rem;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+    margin: 20px;
+}
+
+.footer-section h2 {
+    font-size: 18px;
+    color: #f3f2ff;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    border-bottom: 2px solid #b3cf12;
+    padding-bottom: 5px;
+}
+
+.footer-section p,
+.footer-section ul {
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.footer-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: #f3f2ff;
+    text-decoration: none;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.footer-section ul li a:hover {
+    color: #b3cf12;
+    transform: translateX(5px);
+}
+
+.socials a {
+    color: #f3f2ff;
+    font-size: 18px;
+    margin-right: 20px;
+    display: inline-block;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.socials a:hover {
+    color: #b3cf12;
+    transform: scale(1.1);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-top: 1px solid #777;
+    font-size: 14px;
+    color: #f3f2ff;
+    background: #4117d6;
+}
+
+.footer-bottom p {
+    margin: 0;
+}
+
+.footer-section.contact ul li {
+    display: flex;
+    align-items: center;
+}
+
+.footer-section.contact ul li i {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+/* 
+-----------------------------------------------------------
+  25. Loader Styles 
+-----------------------------------------------------------
+*/
+.loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(99, 98, 150, 0.36);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+}
+
+.loader {
+    width: 100px;
+    height: 100px;
+    border: 8px solid rgba(255, 255, 255, 0.2);
+    border-top: 8px solid #3498db;
+    border-radius: 50%;
+    animation: spin 1.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.2);
+    background: radial-gradient(circle,
+            rgba(255, 255, 255, 0.15) 0%,
+            rgba(0, 0, 0, 0.15) 100%);
+}
+
+.loader-text {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #fff;
+    font-weight: 500;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 1s ease-in-out infinite alternate;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* ... (important styles) ... */
+
+
+button,
+.feature-card,
+.game2-option,
+input,
+textarea {
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    transform: translateY(-2px);
+}
+
+button {
+    outline: none !important;
+}
+
+/* 
+-----------------------------------------------------------
+  26. Font Size Adjustments 
+-----------------------------------------------------------
+*/
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    html {
+        font-size: 50%;
+        /* 1rem = 8px */
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    html {
+        font-size: 56.25%;
+        /* 1rem = 9px */
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    html {
+        font-size: 62.5%;
+        /* 1rem = 10px */
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    html {
+        font-size: 68.75%;
+        /* 1rem = 11px */
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    html {
+        font-size: 75%;
+        /* 1rem = 12px */
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
