@@ -1799,6 +1799,7 @@ section:nth-of-type(even) {
     width: 17rem;
     font-weight: bold;
     letter-spacing: 0.1rem;
+    background: none;
 }
 
 .game1-check-guess:hover {
@@ -2129,7 +2130,7 @@ section:nth-of-type(even) {
 #game3sec {
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
-    background: url("https://i.pinimg.com/236x/85/f5/76/85f576122b7c56b629dd1c2632f7f438.jpg");
+    background: url("./mashub some imp image/game3bg.jpg");
     background-size: cover;
     position: relative;
     margin: 0;
@@ -2155,7 +2156,7 @@ section:nth-of-type(even) {
     margin: 1rem auto;
     display: flex;
     flex-wrap: wrap;
-    background: url("https://st.depositphotos.com/1000152/1823/i/450/depositphotos_18235093-stock-photo-green-grass.jpg");
+    background: url("./mashub some imp image/game3cardbg.jpg");
     background-size: cover;
     border: 0.5rem dashed white;
     border-radius: 2.5rem;
@@ -2164,7 +2165,7 @@ section:nth-of-type(even) {
 #game3sec #game3-board div {
     width: 33.33%;
     height: 33.33%;
-    background-image: url("https://png.pngtree.com/png-vector/20220521/ourmid/pngtree-ground-hole-grass-deep-dark-png-image_4703739.png");
+    background-image: url("mashub some imp image/game3subcontimage.png");
     background-size: 70%;
     background-repeat: no-repeat;
     display: flex;
