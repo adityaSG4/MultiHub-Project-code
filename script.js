@@ -2077,8 +2077,8 @@ let cannonBallInterval;
 let timerInterval3;
 
 const moleImages = [
-    "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiffpPSRNoR9DXhYYs3dsYarifWZ5zodgCn8MaMxaB9EvrVYaBqbtNDjucki7RrvfKkfDV6y5xz8ZmNXbVW2q-qgNAopc5Lx7kH_kvI1CYEsy9wkVMnXGmhEFcsqRqLqQeFR0nx2XYM30x1pv_TK2AjiOs5NmfiTHyihI-Qbg_1fjLzj6-71CSukm8ONhxo/s320/download%20(2).png",
-    "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhx_UQajyWJ3_NyLmPMXSwFQCpu0UoWEL4D0WFZ6avsK5QxdkdnJ8dKZrjkp9Tcdz3NTY1KaRZ6AOTBSF-8QV9Oe0PYWB96dFmt3QJCh9lMY3VtdQmmDirm_J9J-EmqDS6kGla1mvZCU-Pk6DxvzJZtVG3jeXj6eO0DgXUYG1B8h7H03VxlEHeoTfcDw2rb/s320/download%20(3).png"
+    "./mashub some imp image/standMole.png",
+        "./mashub some imp image/insidelandmole.png"
 ];
 
 function startGame3() {
@@ -2167,12 +2167,12 @@ function setCannonBall() {
     if (currCannonBallTile2) currCannonBallTile2.innerHTML = "";
 
     let cannonBall1 = document.createElement("img");
-    cannonBall1.src = "https://cdn-icons-png.flaticon.com/128/2998/2998220.png";
+    cannonBall1.src = "./mashub some imp image/bomb.png";
     cannonBall1.id = 'bombIdx1';
     cannonBall1.alt = 'cannonball image 1';
 
     let cannonBall2 = document.createElement("img");
-    cannonBall2.src = "https://cdn-icons-png.flaticon.com/128/2998/2998220.png";
+    cannonBall2.src = "./mashub some imp image/bomb.png";
     cannonBall2.id = 'bombIdx2';
     cannonBall2.alt = 'cannonball image 2';
 
@@ -2206,10 +2206,10 @@ function selectTile() {
         currCannonBallTile2.innerHTML = '';
     } else if (this == currCannonBallTile1 || this == currCannonBallTile2) {
         if (this == currCannonBallTile1) {
-            document.getElementById('bombIdx1').src = 'https://cdn-icons-png.flaticon.com/128/11871/11871104.png';
+            document.getElementById('bombIdx1').src = './mashub some imp image/blastbomb.png';
             endGame();
         } else {
-            document.getElementById('bombIdx2').src = 'https://cdn-icons-png.flaticon.com/128/11871/11871104.png';
+            document.getElementById('bombIdx2').src = './mashub some imp image/blastbomb.png';
             endGame();
         }
     }
@@ -2344,84 +2344,49 @@ function getTodos() {
 //* ------------nav-------------------------  *
 //* ------------------------------------------  *
 
-/*headerSection.classList.add('d-none');
-trendingToolsSection.classList.add('d-none');
-toolsSection.classList.add('d-none');
- gamesSection.classList.add('d-none');
- todoListSection.classList.add('d-none');
- contactsSection.classList.add('d-none');
- aboutSection.classList.add('d-none');
- settingsSection.classList.add('d-none');*/
-/* headerSection.classList.remove('d-none');
-    trendingToolsSection.classList.remove('d-none');
-    toolsSection.classList.remove('d-none');
-     gamesSection.classList.remove('d-none');
-     todoListSection.classList.remove('d-none');
-     contactsSection.classList.remove('d-none');
-     aboutSection.classList.classList.remove('d-none');
-     settingsSection.classList.remove('d-none');*/
 
-/*
-const headerSection = document.getElementById('header');
-const trendingToolsSection = document.getElementById('trendingtools');
-const toolsSection = document.getElementById('tools');
-const gamesSection = document.getElementById('games');
-const todoListSection = document.getElementById('todolist');
-const contactsSection = document.getElementById('contacts');
-const aboutSection = document.getElementById('about');
-const settingsSection = document.getElementById('settings');
-*/
-
-
-
-/* nav link connection functionality*/
 const mainSection = document.getElementById('mainSection');
 
 const toolSection = document.getElementById('toolSection');
 const nextPage1Section = document.getElementById('nextPage1');
 const nextPage2Section = document.getElementById('nextPage2');
 
-
-//game 
 const game1sec = document.getElementById('game1sec');
 const game2sec = document.getElementById('game2sec');
 const game3sec = document.getElementById('game3sec');
 
 
-// hide 
-
-
 function calledToNextPage2() {
-    mainSection.classList.add('d-none') //hide main sec
-    nextPage2Section.classList.remove('d-none'); //show next page 2
+    mainSection.classList.add('d-none') ;
+    nextPage2Section.classList.remove('d-none'); 
 }
 
 function backFromNextPage2() {
 
-    mainSection.classList.remove('d-none') //show main sec
-    nextPage2Section.classList.add('d-none'); //hide next page 2
+    mainSection.classList.remove('d-none');
+    nextPage2Section.classList.add('d-none');
 }
 
 
 
 function openMoreToolSection() {
-    mainSection.classList.add('d-none'); // hide main sec
-    toolSection.classList.remove('d-none'); // show more tool option
+    mainSection.classList.add('d-none'); 
+    toolSection.classList.remove('d-none'); 
 }
 
 function calledToNextPage1() {
-    toolSection.classList.add('d-none'); //hide more tool option
-    nextPage1Section.classList.remove('d-none'); // show nextpage 1
+    toolSection.classList.add('d-none');
+    nextPage1Section.classList.remove('d-none'); 
 }
 
 function backToHome() {
-    mainSection.classList.remove('d-none'); // show main sec
-    toolSection.classList.add('d-none'); // hide more tool option
+    mainSection.classList.remove('d-none');
+    toolSection.classList.add('d-none');
 }
 
 function backFromNextPage1() {
-    nextPage1Section.classList.add('d-none'); // hide nextpage 1
-    toolSection.classList.remove('d-none'); //show more tool option
+    nextPage1Section.classList.add('d-none'); 
+    toolSection.classList.remove('d-none'); 
 }
 
 function game1open() {
@@ -2448,33 +2413,17 @@ function backToHomeFromGame2() {
 }
 
 
-/*
-function game3open(){
-    mainSection.classList.add('d-none');
-    game3sec.classList.remove('d-none');
-}
-
-function backToHomeFromGame3(){
-    mainSection.classList.remove('d-none');
-    game3sec.classList.add('d-none');
-    resetGame3();
-}*/
-
-
-
-
 function game3open() {
     mainSection.classList.add('d-none');
     game3sec.classList.remove('d-none');
-    document.getElementById('game3-startScreen').style.display = 'flex'; // Show start screen
-    document.getElementById('game3-info').style.display = 'none'; // Hide game info
-    document.getElementById('game3-board').style.display = 'none'; // Hide game board
+    document.getElementById('game3-startScreen').style.display = 'flex';
+    document.getElementById('game3-info').style.display = 'none'; 
+    document.getElementById('game3-board').style.display = 'none'; 
 }
 
 function backToHomeFromGame3() {
 
     game3sec.classList.add('d-none');
-    // Just reset the display, no need to call resetGame3()
     document.getElementById('game3-startScreen').style.display = 'flex';
     document.getElementById('game3-info').style.display = 'none';
     document.getElementById('game3-board').style.display = 'none';
@@ -2546,10 +2495,10 @@ const notification = document.getElementById("result3");
 
 viewMoreGamesBtn.addEventListener("click", () => {
     notification.innerHTML = 'Exciting news! 🎉 More games are on the way! 🎲 <br>Stay tuned as we work hard to bring you fresh and thrilling <br>experiences that you\'ll love. Get ready to dive into <br>new adventures and challenges—coming very soon!';
-    notification.classList.add("show"); // Show the notification
+    notification.classList.add("show"); 
 
     setTimeout(() => {
-        notification.classList.remove("show"); // Hide after 3 seconds
+        notification.classList.remove("show"); 
     }, 3000);
 });
 
