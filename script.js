@@ -24,7 +24,7 @@ const templates = [{
         textareaCheck: true,
         nptextareaLabel: 'Enter text to translate',
         generatePrompt: function(input, textarea) {
-            return `Translate the following text from ${input} to ${textarea}.`;
+            return `As a professional language translator, translate the provided text accurately. First, identify the source language and target language from the user input. Then, translate the following text: "${textarea}". The source language is "${input}" and the target language is "${input}". Return the translated text in a clean paragraph.`;
         }
     }, {
         id: 'Essay_Topic_Suggester',
@@ -37,7 +37,7 @@ const templates = [{
         textareaCheck: false,
         nptextareaLabel: '',
         generatePrompt: function(input) {
-            return `Suggest essay topics for the subject or area of interest: ${input}.`;
+            return `As an essay topic suggestion expert, suggest engaging and relevant essay topics. First, identify the subject or area of interest from the user input. Then, generate a list of essay topics based on the provided subject: "${input}". Return the topics in a numbered or bulleted list format.`;
         }
     },
     {
@@ -51,7 +51,7 @@ const templates = [{
         textareaCheck: false,
         nptextareaLabel: '',
         generatePrompt: function(input) {
-            return `Generate a detailed essay outline for the topic: ${input}.`;
+            return `As an essay outline expert, generate a detailed and structured essay outline. First, identify the essay topic from the user input. Then, break down the topic into key sections like introduction, body, and conclusion, providing subtopics or arguments for each. The essay topic is: "${input}". Present the outline in a structured format, using bullet points or headings with subpoints.`;
         }
     },
     {
@@ -65,7 +65,7 @@ const templates = [{
         textareaCheck: false,
         nptextareaLabel: '',
         generatePrompt: function(input) {
-            return `Generate research paper ideas for the field of study: ${input}.`;
+            return `As a research paper idea generation expert, generate innovative research paper ideas. First, identify the field of study from the user input. Then, analyze key topics, trends, or areas of research within that field. Generate a list of relevant research paper ideas for the field of study: "${input}". Present the ideas in a numbered or bulleted list format.`;
         }
     },
     {
@@ -79,7 +79,7 @@ const templates = [{
         textareaCheck: false,
         nptextareaLabel: '',
         generatePrompt: function(input) {
-            return `Generate a thesis statement for the topic: ${input}.`;
+            return `As a thesis statement generation expert, create a clear and concise thesis statement. First, identify the essay or research paper topic from the user input. Then, craft a thesis statement that clearly presents the central argument or claim for the topic: "${input}". Provide the thesis statement as a single, impactful sentence.`;
         }
     },
     {
@@ -93,7 +93,7 @@ const templates = [{
         textareaCheck: false,
         nptextareaLabel: '',
         generatePrompt: function(input) {
-            return `Create a personalized study plan for the subjects and goals: ${input}.`;
+            return `As a study plan creation expert, develop a personalized study plan. First, identify the subjects and study goals from the user input. Then, create a detailed plan that includes schedules, milestones, and recommended activities for achieving the study goals. The subjects and goals are: "${input}". Present the plan in a structured format, such as a timeline or list of actionable steps.`;
         }
     },
     {
@@ -107,7 +107,7 @@ const templates = [{
         textareaCheck: false,
         nptextareaLabel: '',
         generatePrompt: function(input) {
-            return `Generate exam questions for the topic or subject: ${input}.`;
+            return `As an exam question generation expert, create a set of exam questions. First, identify the topic or subject from the user input. Then, generate a range of relevant and challenging questions, including different types such as multiple-choice, short answer, or easy questions. For multiple-choice questions, provide each option on a new line. Provide the answers or key points for the questions at the end. The topic or subject is: "${input}". Present the questions in a numbered or bulleted list format, with answers listed separately at the end.`;
         }
     },
     {
@@ -121,7 +121,7 @@ const templates = [{
         textareaCheck: false,
         nptextareaLabel: '',
         generatePrompt: function(input) {
-            return `Create a lesson plan for the subject and class level: ${input}.`;
+            return `As a lesson plan creation expert, develop a detailed lesson plan. First, identify the subject and class level from the user input. Then, create a structured lesson plan that includes objectives, materials needed, step-by-step instructions, and assessment methods. Ensure the plan is suitable for the specified class level and effectively covers the subject matter. The subject and class level are: "${input}". Present the lesson plan in a detailed outline or structured format with clear headings.`;
         }
     },
     {
@@ -132,10 +132,10 @@ const templates = [{
         description: "An AI tool that suggests ideas for your presentation slides based on your topic.",
         inputCheck: true,
         npInputLabel: 'Enter your presentation topic',
-        textareaCheck: false,
-        nptextareaLabel: '',
-        generatePrompt: function(input) {
-            return `Suggest ideas for presentation slides for the topic: ${input}.`;
+        textareaCheck: true,
+        nptextareaLabel: 'Enter number of slide (maximum 30)*',
+        generatePrompt: function(input, textarea) {
+            return `As a presentation slide idea generator, suggest ideas for presentation slides. First, identify the presentation topic from the user input. Then, generate a range of slide ideas for ${textarea} slides, including potential titles, main points, visual elements, and suggested content for each slide. Ensure the ideas are relevant, engaging, and well-suited to the topic. The presentation topic is: "${input}". Present the slide ideas in a list format, with each idea clearly outlined.`;
         }
     },
     {
@@ -149,7 +149,7 @@ const templates = [{
         textareaCheck: true,
         nptextareaLabel: 'Enter text to summarize',
         generatePrompt: function(textarea) {
-            return `Summarize the following text into concise points: ${textarea}.`;
+            return `As a paragraph summarizer, summarize the following text into concise points. Analyze the text to extract the key points and essential information, and condense it into a series of clear and concise points that capture the main ideas. The text to summarize is: "${textarea}". Present the summary in a bullet-point or numbered list format, with each point representing a key idea from the text.`;
         }
     }, {
         id: 'Blog_Title',
@@ -162,7 +162,7 @@ const templates = [{
         textareaCheck: true,
         nptextareaLabel: 'Enter blog outline',
         generatePrompt: function(input, textarea) {
-            return `Generate a blog title for the niche: ${input}. Blog outline: ${textarea}.`;
+            return `As a blog title generator, create a catchy and relevant blog title based on the provided information. First, identify the blog niche from the user input. Then, review the blog outline to understand the key themes, topics, and unique points. Generate a blog title that is engaging, reflective of the content, and aligns with the niche and outline. The blog niche is: "${input}". The blog outline is: "${textarea}". Present the title in a single line.`;
         }
     },
     {
@@ -176,7 +176,7 @@ const templates = [{
         textareaCheck: true,
         nptextareaLabel: 'Enter blog outline',
         generatePrompt: function(input, textarea) {
-            return `Generate blog content for the title: ${input}. Blog outline: ${textarea}.`;
+            return `As a blog content generator, create engaging and well-written blog content based on the provided information. First, identify the blog title from the user input. Then, review the blog outline (if provided) to understand any specific points, themes, or structure to include. Generate content that aligns with the title and outline, ensuring it is relevant and suitable for the target audience. The blog title is: "${input}". The blog outline is: "${textarea}". Present the content as a coherent and structured article.`;
         }
     },
     {
@@ -190,7 +190,7 @@ const templates = [{
         textareaCheck: false,
         nptextareaLabel: '',
         generatePrompt: function(input) {
-            return `Generate blog topic ideas for the niche: ${input}.`;
+            return `As a blog topic ideas generator, create a range of creative and engaging blog topic ideas based on the provided niche. First, identify the niche from the user input. Then, generate diverse and relevant topic ideas that align with the niche and appeal to the target audience. The blog niche is: "${input}". Present the topic ideas in a list format, with each idea clearly outlined.`;
         }
     },
     {
@@ -204,7 +204,7 @@ const templates = [{
         textareaCheck: true,
         nptextareaLabel: 'Enter YouTube description outline here',
         generatePrompt: function(input, textarea) {
-            return `Generate an SEO-friendly YouTube video title for the keywords: ${input}. Description outline: ${textarea}.`;
+            return `As a YouTube SEO title generator, create an SEO-friendly video title based on the provided information. First, identify the YouTube video topic keywords from the user input. If a description outline is provided, review it to understand additional context. Generate a catchy and SEO-optimized title that reflects the keywords and aligns with the description outline [ total number of title Generate is top 5 ]. The keywords are: "${input}". The description outline is: "${textarea}". Present the title in a single line.`;
         }
     },
     {
@@ -218,21 +218,35 @@ const templates = [{
         textareaCheck: true,
         nptextareaLabel: 'Enter YouTube outline here',
         generatePrompt: function(input, textarea) {
-            return `Generate a YouTube video description for the topic/title: ${input}. Outline: ${textarea}.`;
+            return `As a YouTube video description generator, create an SEO-optimized video description based on the provided information. First, identify the video topic or title from the user input. If an outline is provided, review it to incorporate additional context and details. Generate an engaging description that aligns with the topic/title and is optimized for search engines. The topic/title is: "${input}". The outline is: "${textarea}". Present the description with the following sections:
+
+
+                    1. Video Description (sub heading in center):
+
+                               - Introduction: Briefly introduce the content or theme of the video. Mention what viewers can expect to see or learn.
+                               - What’s Inside the Video: Provide a summary of the main segments or features. Include any key highlights or standout moments.
+                               - Why You Should Watch: Explain the value or entertainment factor of the video. Highlight any unique aspects or reasons why this video is special or timely.
+                               - What to Expect: Describe any prerequisites or background knowledge that might enhance the viewing experience (if applicable). For music videos: Mention the artist, song, and any special features (e.g., collaborations). For action/dance/movies: Tease the content without giving away too much. For news/technology: Highlight the main stories or tech topics covered.
+                               - Timestamps: Offer a breakdown of the video with timestamps for easy navigation (optional but useful for longer videos). Include the start times for each major segment or topic.
+                               - Call to Action: Encourage viewers to like, share, and subscribe to your channel. Invite them to comment with their thoughts, questions, or feedback.
+                               - Additional Resources: Include links to related content or additional information. For music: Link to the artist’s profile or album. For technology: Link to articles or product reviews.
+                               - Social Media & Contact Information: Provide links to your social media profiles where viewers can follow for updates. Include any relevant contact information for inquiries or collaborations.
+                               - keywords: List relevant keywords that describe the video’s content (useful for search optimization).
+                               - Tags: List relevant Tags that describe the video’s content (useful for search optimization).`;
         }
     },
     {
-        id: 'Youtube_Tags',
+        id: 'Youtube_Hashtags',
         imgSrc: "https://cdn-icons-png.flaticon.com/128/4674/4674918.png",
-        alt: "Youtube Tags",
-        title: "Youtube Tags",
-        description: "An AI tool that generates YouTube tags based on your video topic or title and description outline.",
+        alt: "Youtube Hashtags",
+        title: "Youtube Hashtags",
+        description: "An AI tool that generates YouTube Hashtags based on your video topic or title and description outline.",
         inputCheck: true,
         npInputLabel: 'Enter your video topic/title',
         textareaCheck: true,
         nptextareaLabel: 'Enter YouTube outline here (optional)',
         generatePrompt: function(input, textarea) {
-            return `Generate YouTube tags for the topic/title: ${input}. Outline: ${textarea}.`;
+            return `As a YouTube Hashtags generator, create relevant and effective Hashtags for the provided video topic/title. First, identify the video topic or title from the user input. If a description outline is provided, review it for additional context. Generate a set of Hashtags that are related to the topic/title and outline. Ensure the Hashtags are varied and optimized for search engine visibility. The video topic/title is: "${input}". The description outline is: "${textarea}". Present the Hashtags in a list format with each Hashtags on a new line or separated by commas.`;
         }
     },
     {
@@ -246,7 +260,7 @@ const templates = [{
         textareaCheck: true,
         nptextareaLabel: 'Provide your article/blog post or any other content to rewrite.',
         generatePrompt: function(textarea) {
-            return `Rewrite the following article to make it plagiarism-free and bypass AI detectors: ${textarea}.`;
+            return `As a content rewriter, rewrite the following article or blog post to make it plagiarism-free and bypass AI detectors. First, analyze the provided content to understand its key points and structure. Then, rewrite the text while maintaining the original meaning but changing the wording and structure to ensure it is free from plagiarism. Ensure that the rewritten content is coherent and readable. The provided content is: "${textarea}". Present the rewritten article or blog post in a complete text format.`;
         }
     },
     {
@@ -260,7 +274,7 @@ const templates = [{
         textareaCheck: true,
         nptextareaLabel: 'Enter text that you want to re-write or improve',
         generatePrompt: function(textarea) {
-            return `Improve the following text, eliminating errors and redundancies: ${textarea}.`;
+            return `As a text improvement expert, refine the following text by eliminating errors and redundancies, and enhance its clarity. First, analyze the provided text to identify errors, redundancies, and areas for better wording. Then, improve the text by correcting errors, removing redundancies, and offering a comprehensive tone analysis. Suggest better word choices to enhance readability. The provided text is: "${textarea}". Present the refined text as a complete, revised version. and in last then write by corrected sentence`;
         }
     }, {
         id: 'Project_Proposal_Generator',
@@ -273,7 +287,7 @@ const templates = [{
         textareaCheck: true,
         nptextareaLabel: 'Enter your project objectives',
         generatePrompt: function(input, textarea) {
-            return `Generate a project proposal for the project idea: ${input}. Project objectives: ${textarea}.`;
+            return `As a project proposal generator, create a detailed project proposal for the project idea: ${input}. First, analyze the project idea to understand its scope and requirements. Then, incorporate the provided project objectives to outline specific goals and deliverables. Generate a comprehensive proposal that includes an introduction, project scope, objectives, methodology, timeline, and expected outcomes. The project objectives are: "${textarea}". Present the proposal in a structured document format.`;
         }
     },
     {
@@ -287,7 +301,7 @@ const templates = [{
         textareaCheck: true,
         nptextareaLabel: 'Enter your experiment details',
         generatePrompt: function(input, textarea) {
-            return `Generate a lab report for the experiment titled: ${input}. Experiment details: ${textarea}.`;
+            return `As a lab report generator, create a detailed lab report for the experiment titled: ${input}. First, analyze the experiment title to understand its main focus. Then, incorporate the provided experiment details to include specific information on methodology, results, and analysis. Generate a comprehensive lab report that includes sections for introduction, methodology, results, discussion, and conclusion. The experiment details are: "${textarea}". Present the report in a structured document format.`;
         }
     },
     {
@@ -301,7 +315,7 @@ const templates = [{
         textareaCheck: true,
         nptextareaLabel: 'Enter your math problem',
         generatePrompt: function(textarea) {
-            return `Solve the following math problem step-by-step: ${textarea}.`;
+            return `As a math problem solver, solve the following math problem step-by-step: ${textarea}. Break down the problem into smaller, manageable steps, solve each step systematically, and provide a clear explanation of each part of the process. Present the solution in a step-by-step format.`;
         }
     },
     {
@@ -315,7 +329,7 @@ const templates = [{
         textareaCheck: false,
         nptextareaLabel: '',
         generatePrompt: function(input) {
-            return `Suggest science experiment ideas for the topic: ${input}.`;
+            return `As a science experiment advisor, suggest science experiment ideas for the topic: ${input}. Generate a range of creative and relevant experiment ideas, ensuring they are feasible and suitable for the topic. Present the ideas in a clear and organized list format.`;
         }
     },
     {
@@ -329,7 +343,7 @@ const templates = [{
         textareaCheck: false,
         nptextareaLabel: '',
         generatePrompt: function(input) {
-            return `Recommend books based on the interests or genres: ${input}.`;
+            return `As a book recommendation expert, recommend books based on the interests or genres: ${input}. Suggest a variety of books that align with these preferences. Present the recommendations in a clear and organized list format.`;
         }
     },
 
@@ -344,7 +358,7 @@ const templates = [{
         textareaCheck: true,
         nptextareaLabel: 'Enter your coding question or issue',
         generatePrompt: function(input, textarea) {
-            return `Provide coding help and explanations for the following issue in ${input}: ${textarea}.`;
+            return `As a coding tutor, provide help and explanations for the following issue in ${input}: ${textarea}. Address the problem with clear explanations and solutions, ensuring the guidance is relevant to the specified programming language.`;
         }
     },
     {
@@ -372,7 +386,20 @@ const templates = [{
         textareaCheck: true,
         nptextareaLabel: 'Enter your qualifications and experience',
         generatePrompt: function(input, textarea) {
-            return `Generate a cover letter for the job title: ${input} at ${textarea}.`;
+            return `acts as a cover letter generator.
+                    Generate a compelling cover letter.
+                        1 Identify the job title and company from the ${input} .
+                        2 Include relevant details from the  ${textarea} .
+                        3 if there is about a user name and detail from the  ${textarea}.
+                        4 Craft an engaging introduction, summarize qualifications and experience, highlight achievements, and conclude with a strong closing statement.
+                    The user is applying for a job and needs a cover letter that aligns with the job and company
+                    Provide a structured cover letter with distinct sections: Introduction, Experience and Skills, Certifications, Company Fit, and Closing.
+                    Key Points of the Cover Letter:
+                        - Introduction: Clearly states the position being applied for and briefly mentions qualifications.
+                        - Experience and Skills: Highlights relevant achievements and skills from past roles.
+                        - Certifications: Lists certifications to demonstrate additional qualifications.
+                        - Company Fit: Expresses enthusiasm for the company and how the candidate’s skills align with the company’s goals.
+                        - Closing: Includes a call to action for an interview and provides contact information.`;
         }
     },
     {
@@ -384,9 +411,9 @@ const templates = [{
         inputCheck: true,
         npInputLabel: 'Enter your topic or subject',
         textareaCheck: false,
-        nptextareaLabel: '',
+        nptextareaLabel: ')',
         generatePrompt: function(input) {
-            return `Generate quiz questions for the topic or subject: ${input}.`;
+            return `As an expert quiz question generator, create a comprehensive set of quiz questions based on the provided topic or subject. Start by identifying the topic or subject from the user input. Then, develop a diverse set of questions that thoroughly cover various aspects of the topic, ensuring a balanced mix of difficulty levels. For multiple-choice questions, list each option on a new line beneath the question. At the end, provide the correct answers or key points for each question, listed separately in a clear and organized manner, with each answer on a new line. The topic or subject is: "${input}". Present the quiz questions in a numbered or bulleted list format with each option in new new line, with the correct answers listed at the end.`;
         }
     }, {
         id: 'YouTube_Thumbnail_Generator_tips',
@@ -399,7 +426,7 @@ const templates = [{
         textareaCheck: true,
         nptextareaLabel: 'Enter specific thumbnail details or themes',
         generatePrompt: function(input, textarea) {
-            return `Create a YouTube thumbnail for the video titled "${input}" with the following details or themes: ${textarea}.`;
+            return `As a YouTube thumbnail design consultant, provide ideas for creating an eye-catching thumbnail. First, identify the video title from the user input. Optionally, incorporate any specific details or themes provided. Generate ideas for the thumbnail design, including visual elements, text placement, color schemes, and other relevant details. Ensure the ideas are engaging, relevant to the video content, and suitable for attracting viewers. The video title is: "${input}". For optional details or themes: "${textarea}". Present the ideas in a clear format with design suggestions.`;
         }
     },
     {
@@ -413,7 +440,7 @@ const templates = [{
         textareaCheck: true,
         nptextareaLabel: 'Enter keywords or phrases you want to include',
         generatePrompt: function(input, textarea) {
-            return `Optimize the YouTube video title "${input}" by including the following keywords or phrases: ${textarea}.`;
+            return `As a YouTube title optimization expert, transform the video title for maximum impact. Begin by analyzing the current video title provided: "${input}". If the user has supplied additional keywords or phrases: "${textarea}", strategically incorporate them to enhance the title's relevance and searchability. Generate a powerful and optimized version of the title that significantly improves visibility and engagement on YouTube. Present the final optimized title clearly, with a focus on how the keywords or phrases have been effectively integrated to attract more viewers.`;
         }
     },
     {
@@ -427,9 +454,139 @@ const templates = [{
         textareaCheck: true,
         nptextareaLabel: 'Enter key points or segments to cover',
         generatePrompt: function(input, textarea) {
-            return `Write a script for a YouTube video on the topic "${input}" covering the following key points or segments: ${textarea}.`;
+            return `As a YouTube scriptwriting assistant, create a compelling script for the video topic: "${input}". If additional key points or segments have been provided: "${textarea}", incorporate them into the script. Develop a detailed and engaging script with a clear structure, including an introduction, main content, and conclusion. Ensure the script is tailored to the topic and effectively communicates the message to the target audience.`;
+        }
+    },
+
+    {
+        id: 'Workout_Planner',
+        imgSrc: "https://cdn-icons-png.flaticon.com/128/3664/3664446.png",
+        alt: "Workout Planner",
+        title: "Workout Planner",
+        description: "An AI tool that creates personalized workout plans based on your fitness level and goals.",
+        inputCheck: true,
+        npInputLabel: 'Enter your fitness goal (e.g., muscle gain, weight loss)',
+        textareaCheck: false,
+        nptextareaLabel: '',
+        generatePrompt: function(input) {
+            return `As a workout planner, create a personalized workout plan tailored to the fitness goal: "${input}". Ensure the plan is suitable for the individual's fitness level and provides a structured routine.`;
+        }
+    },
+    {
+        id: 'Meal_Planner',
+        imgSrc: "https://cdn-icons-png.flaticon.com/128/9757/9757195.png",
+        alt: "Meal Planner",
+        title: "Meal Planner",
+        description: "An AI tool that creates customized meal plans based on your dietary preferences and health goals.",
+        inputCheck: true,
+        npInputLabel: 'Enter your dietary preferences (e.g., vegan, low-carb)',
+        textareaCheck: false,
+        nptextareaLabel: '',
+        generatePrompt: function(input) {
+            return `As a meal planner, create a customized meal plan that aligns with the dietary preferences: "${input}". Ensure the meal plan supports the individual's health and fitness goals.`;
+        }
+    },
+    {
+        id: 'Symptom_Checker',
+        imgSrc: "https://cdn-icons-png.flaticon.com/128/670/670875.png",
+        alt: "Symptom Checker",
+        title: "Symptom Checker",
+        description: "An AI tool that analyzes symptoms to provide potential health conditions.",
+        inputCheck: false,
+        npInputLabel: '',
+        textareaCheck: true,
+        nptextareaLabel: 'Enter your symptoms',
+        generatePrompt: function(textarea) {
+            return `add this in heading Symptom Checker and in sub heading  🚨 **Alert:** This AI tool is not a substitute for professional medical advice. Please consult a healthcare professional for a proper diagnosis and treatment. [ Dr. Aditya Gupta 👨🏽‍⚕️ ]\n
+             Now, based on the following symptoms: "${textarea}", provide a list of potential health conditions that may be associated with these symptoms. Include suggestions for further actions or when to seek medical advice. Please keep your response informative and concise.`;
+
+        }
+    },
+    {
+        id: 'Mental_Health_Advisor',
+        imgSrc: "https://cdn-icons-png.flaticon.com/128/3257/3257860.png",
+        alt: "Mental Health Advisor",
+        title: "Mental Health Advisor",
+        description: "An AI tool that provides mental health advice and coping strategies.",
+        inputCheck: true,
+        npInputLabel: 'Enter your current mental state or concern',
+        textareaCheck: false,
+        nptextareaLabel: '',
+        generatePrompt: function(input) {
+            return `As a mental health advisor, provide advice and coping strategies based on the current mental state or concern: "${input}". Offer support and practical suggestions to help manage this mental health concern.`;
+        }
+    },
+    {
+        id: 'Sleep_Tracker',
+        imgSrc: "https://cdn-icons-png.flaticon.com/128/14778/14778579.png",
+        alt: "Sleep Tracker",
+        title: "Sleep Tracker",
+        description: "An AI tool that analyzes sleep patterns to provide recommendations for better sleep.",
+        inputCheck: false,
+        npInputLabel: '',
+        textareaCheck: true,
+        nptextareaLabel: 'Enter your sleep pattern details',
+        generatePrompt: function(textarea) {
+            return `As a sleep tracker, analyze the following sleep pattern details: "${textarea}". Provide recommendations to improve sleep quality based on the analysis.`;
+        }
+    },
+    {
+        id: 'Hydration_Tracker',
+        imgSrc: "https://cdn-icons-png.flaticon.com/128/4721/4721070.png",
+        alt: "Hydration Tracker",
+        title: "Hydration Tracker",
+        description: "An AI tool that tracks daily water intake and provides hydration tips.",
+        inputCheck: false,
+        npInputLabel: '',
+        textareaCheck: true,
+        nptextareaLabel: 'Enter your daily water intake details',
+        generatePrompt: function(textarea) {
+            return `As a hydration tracker, analyze the following daily water intake details: "${textarea}". Provide tips to ensure proper hydration based on the analysis.`;
+        }
+    },
+    {
+        id: 'Stress_Manager',
+        imgSrc: "https://cdn-icons-png.flaticon.com/128/11315/11315969.png",
+        alt: "Stress Manager",
+        title: "Stress Manager",
+        description: "An AI tool that offers personalized stress management techniques based on your current stress level and specific stress-related concerns.",
+        inputCheck: true,
+        npInputLabel: 'Enter your current stress level (e.g., low, medium, high)',
+        textareaCheck: true,
+        nptextareaLabel: 'Describe the specific sources or situations contributing to your stress',
+        generatePrompt: function(input, textarea) {
+            return `As a stress management expert, provide tailored techniques and strategies based on the user's current stress level and specific stressors. The user's current stress level is "${input}". They have described their stress sources or situations as follows: "${textarea}". Offer a detailed and personalized plan to manage and reduce stress, including practical steps, relaxation exercises, and coping strategies. Ensure the recommendations address the specific concerns mentioned and are appropriate for the stress level indicated.`;
+        }
+    },
+    {
+        id: 'Yoga_Guide',
+        imgSrc: "https://cdn-icons-png.flaticon.com/128/8086/8086179.png",
+        alt: "Yoga Guide",
+        title: "Yoga Guide",
+        description: "An AI tool that suggests personalized yoga routines based on your fitness and relaxation goals, tailored to your specific needs.",
+        inputCheck: true,
+        npInputLabel: 'Enter your yoga goal (e.g., relaxation, flexibility)',
+        textareaCheck: true,
+        nptextareaLabel: 'Provide any specific preferences or limitations (e.g., injuries, preferred duration)',
+        generatePrompt: function(input, textarea) {
+            return `As a yoga guide, provide a detailed yoga routine tailored to the user's goal: "${input}". Consider the following additional details: "${textarea}". Your response should include a relevant sequence of poses and practices that address the user's fitness or relaxation goal, taking into account any preferences or limitations mentioned. Outline the routine clearly, specifying each pose, its duration, and any modifications or tips to enhance effectiveness. Ensure that the suggested routine is actionable, suitable for the user's context, and sets clear expectations for outcomes. Provide follow-up advice or resources to help the user stay on track with their yoga practice.`;
+        }
+    },
+    {
+        id: 'Health_Journal',
+        imgSrc: "https://cdn-icons-png.flaticon.com/128/3799/3799748.png",
+        alt: "Health Journal",
+        title: "Health Journal",
+        description: "An AI tool that helps you maintain a daily health journal to track physical and mental well-being.",
+        inputCheck: true,
+        npInputLabel: 'Enter today’s physical or mental health experiences',
+        textareaCheck: false,
+        nptextareaLabel: '',
+        generatePrompt: function(input) {
+            return `As a health journal assistant, summarize today’s health experiences: "${input}". Provide an analysis and suggestions for maintaining or improving well-being.`;
         }
     }
+
 ];
 
 //* ------------------------------------------  *
