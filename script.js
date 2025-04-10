@@ -861,17 +861,13 @@ function callToolResponsePage(idx) {
             }
 
             try {
-                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${GeminiFlashKey}`, {
+                const response = await fetch('https://gbcore.onrender.com/generate', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({
-                        contents: [{
-                            parts: [{
-                                text: prompt,
-                            }],
-                        }],
+                        prompt
                     }),
                 });
 
@@ -1198,17 +1194,13 @@ function callNextPage(idx) {
             }
 
             try {
-                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${GeminiFlashKey}`, {
+                const response = await fetch('https://gbcore.onrender.com/generate', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({
-                        contents: [{
-                            parts: [{
-                                text: prompt,
-                            }],
-                        }],
+                        prompt
                     }),
                 });
 
